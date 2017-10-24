@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE tiles-definitions PUBLIC  
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+        
+<tiles-definitions>
+    <definition name="DefaultTemplate" 
+      template="/WEB-INF/views/layouttemplate/Layout.jsp" >
+        <put-attribute name="head" value="/WEB-INF/views/layouttemplate/Head.jsp"></put-attribute>
+        <put-attribute name="title" value="" />
+        <put-attribute name="body" value="" />
+        <put-attribute name="footer" value="/WEB-INF/views/layouttemplate/Footer.jsp" />
+        <put-attribute name="banner" value="/WEB-INF/views/layouttemplate/Banner.jsp"/>
+        <put-attribute name="cartjs" value="/WEB-INF/views/layouttemplate/Cartjs.jsp"/>
+        <put-list-attribute name="css">
+            <add-attribute value="/css/bootstrap.css" />
+            <add-attribute value="/css/font-awesome.css" />
+            <add-attribute value="/css/style.css" />
+            <add-attribute value="/css/owl.carousel.css" />
+        </put-list-attribute>
+        <put-list-attribute name="headjs">
+            <add-attribute value="/js/jquery-2.2.3.min.js"/>
+        </put-list-attribute>
+        <put-list-attribute name="js">
+        </put-list-attribute>
+        <put-list-attribute name="fonts">
+            
+        </put-list-attribute>
+    </definition>
+    
+    <definition name="home" extends="DefaultTemplate">
+        <put-attribute name="title" value="Home"/>
+        <put-attribute name="body" value="/WEB-INF/views/Home/Index.jsp"/>
+        <put-attribute name="banner" value="/WEB-INF/views/Home/Banner-Home.jsp"/>
+    </definition>
+</tiles-definitions>
