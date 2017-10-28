@@ -19,10 +19,10 @@
                                                     <a href="${pageContext.request.contextPath}/SignUp"><i class="fa fa-user-plus" aria-hidden="true"></i> Signup</a>
                                             </li> 
                                             <li class="head-dpdn">
-                                                    <a href="offers.html"><i class="fa fa-gift" aria-hidden="true"></i> Offers</a>
+                                                    <a href="${pageContext.request.contextPath}/Offers"><i class="fa fa-gift" aria-hidden="true"></i> Offers</a>
                                             </li> 
                                             <li class="head-dpdn">
-                                                    <a href="help.html"><i class="fa fa-question-circle" aria-hidden="true"></i> Help</a>
+                                                    <a href="${pageContext.request.contextPath}/Help"><i class="fa fa-question-circle" aria-hidden="true"></i> Help</a>
                                             </li>
                                     </ul>
                             </div>

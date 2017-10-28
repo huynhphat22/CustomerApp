@@ -62,5 +62,13 @@
         <put-attribute name="body" value="/WEB-INF/views/Home/About.jsp"/>
     </definition>
     
+    <definition name="help" extends="DefaultTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/Home/Help.jsp"/>
+    </definition>
+    
+    <definition name="offers" extends="DefaultTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/Home/Offers.jsp"/>
+    </definition>
+    
     
 </tiles-definitions>

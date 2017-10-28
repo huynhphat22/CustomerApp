@@ -55,6 +55,16 @@ public class HomeController {
     public ModelAndView about(){
         return new ModelAndView("about");
     }
+    
+    @RequestMapping(value = "/Offers", method = RequestMethod.GET)
+    public ModelAndView offers(){
+        return new ModelAndView("offers");
+    }
+    
+    @RequestMapping(value = "/Help", method = RequestMethod.GET)
+    public ModelAndView help(){
+        return new ModelAndView("help");
+    }
 }
 
 
