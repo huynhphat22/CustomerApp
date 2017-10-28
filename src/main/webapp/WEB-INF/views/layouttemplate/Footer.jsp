@@ -1,8 +1,4 @@
-<%-- 
-    Document   : Footer
-    Created on : Oct 23, 2017, 4:25:06 PM
-    Author     : HuynhTanPhat
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div class="footer agileits-w3layouts">

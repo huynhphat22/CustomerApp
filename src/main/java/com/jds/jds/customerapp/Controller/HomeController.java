@@ -20,4 +20,41 @@ public class HomeController {
     public ModelAndView init(){
         return new ModelAndView("home");
     }
+    
+    @RequestMapping(value = "/Menu", method = RequestMethod.GET)
+    public ModelAndView menu(){
+        return new ModelAndView("menu");
+    }
+    
+    @RequestMapping(value = "/Foods", method = RequestMethod.GET)
+    public ModelAndView foods(){
+        return new ModelAndView("foods");
+    }
+    
+    @RequestMapping(value = "/Login", method = RequestMethod.GET)
+    public ModelAndView login(){
+        return new ModelAndView("login");
+    }
+    
+    @RequestMapping(value = "/SignUp", method = RequestMethod.GET)
+    public ModelAndView signUp(){
+        return new ModelAndView("sign-up");
+    }
+    
+    @RequestMapping(value = "/Contact", method = RequestMethod.GET)
+    public ModelAndView contact(){
+        return new ModelAndView("contact");
+    }
+    
+    @RequestMapping(value = "/Departments", method = RequestMethod.GET)
+    public ModelAndView departments(){
+        return new ModelAndView("departments");
+    }
+    
+    @RequestMapping(value = "/About", method = RequestMethod.GET)
+    public ModelAndView about(){
+        return new ModelAndView("about");
+    }
 }
+
+
