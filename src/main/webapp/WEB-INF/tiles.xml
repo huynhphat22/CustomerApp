@@ -11,7 +11,6 @@
         <put-attribute name="body" value="" />
         <put-attribute name="footer" value="/WEB-INF/views/layouttemplate/Footer.jsp" />
         <put-attribute name="banner" value="/WEB-INF/views/layouttemplate/Banner.jsp"/>
-        <put-attribute name="cartjs" value="/WEB-INF/views/layouttemplate/Cartjs.jsp"/>
         <put-list-attribute name="css">
             <add-attribute value="/css/bootstrap.css" />
             <add-attribute value="/css/font-awesome.css" />

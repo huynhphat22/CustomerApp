@@ -23,11 +23,15 @@
             <version>${springframework.version}</version>
         </dependency>
         
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>1.7.25</version>
-        </dependency>
+        <!-- Hibernate -->
+       <!-- http://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+       <dependency>
+           <groupId>org.hibernate</groupId>
+           <artifactId>hibernate-core</artifactId>
+           <version>5.1.0.Final</version>
+       </dependency>
+ 
+        
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
@@ -43,12 +47,6 @@
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
-        <dependency>
-            <groupId>org.tuckey</groupId>
-            <artifactId>urlrewritefilter</artifactId>
-            <version>4.0.3</version>
-        </dependency>
-        
         <!--
         Tiles dependency
         -->
@@ -64,6 +62,15 @@
             <version>7.0</version>
             <scope>provided</scope>
         </dependency>
+        
+         <!-- MySQL JDBC driver -->
+       <!-- http://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+       <dependency>
+           <groupId>mysql</groupId>
+           <artifactId>mysql-connector-java</artifactId>
+           <version>5.1.34</version>
+       </dependency>
+ 
     </dependencies>
 
     <build>

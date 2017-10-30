@@ -34,8 +34,6 @@
         <footer>
             <tiles:insertAttribute name="footer"></tiles:insertAttribute>
         </footer>
-        
-        <tiles:insertAttribute name="cartjs"></tiles:insertAttribute>
         <c:forEach items="${jsItems}" var="js">
             <script src="<spring:url value="${js}"/>"></script>
         </c:forEach>
