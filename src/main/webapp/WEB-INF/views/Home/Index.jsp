@@ -1,8 +1,4 @@
-<%-- 
-    Document   : Home
-    Created on : Oct 23, 2017, 6:54:30 PM
-    Author     : HuynhTanPhat
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div class="add-products">  

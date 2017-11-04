@@ -1,9 +1,3 @@
-<%-- 
-    Document   : Banner-Home
-    Created on : Oct 23, 2017, 6:54:54 PM
-    Author     : HuynhTanPhat
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div class="banner">
     <!-- header -->
@@ -19,16 +13,16 @@
                                                     <i class="fa fa-phone" aria-hidden="true"></i> Call us: +01 222 33345 
                                             </li> 
                                             <li class="head-dpdn">
-                                                    <a href="login.html"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
+                                                    <a href="${pageContext.request.contextPath}/Login"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
                                             </li> 
                                             <li class="head-dpdn">
-                                                    <a href="signup.html"><i class="fa fa-user-plus" aria-hidden="true"></i> Signup</a>
+                                                    <a href="${pageContext.request.contextPath}/SignUp"><i class="fa fa-user-plus" aria-hidden="true"></i> Signup</a>
                                             </li> 
                                             <li class="head-dpdn">
-                                                    <a href="offers.html"><i class="fa fa-gift" aria-hidden="true"></i> Offers</a>
+                                                    <a href="${pageContext.request.contextPath}/Offers"><i class="fa fa-gift" aria-hidden="true"></i> Offers</a>
                                             </li> 
                                             <li class="head-dpdn">
-                                                    <a href="help.html"><i class="fa fa-question-circle" aria-hidden="true"></i> Help</a>
+                                                    <a href="${pageContext.request.contextPath}/Help"><i class="fa fa-question-circle" aria-hidden="true"></i> Help</a>
                                             </li>
                                     </ul>
                             </div>
@@ -48,54 +42,16 @@
                                                     <span class="icon-bar"></span>
                                                     <span class="icon-bar"></span>
                                             </button>  
-                                            <h1><a href="index.html">Staple<span>Best Food Collection</span></a></h1>
+                                            <h1><a href="${pageContext.request.contextPath}/Home">Staple<span>Best Food Collection</span></a></h1>
                                     </div> 
                                     <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
                                             <ul class="nav navbar-nav navbar-right">
-                                                    <li><a href="index.html" class="active">Home</a></li>	
+                                                    <li><a href="${pageContext.request.contextPath}/Home" class="active">Home</a></li>	
                                                     <!-- Mega Menu -->
-                                                    <li class="dropdown">
-                                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu <b class="caret"></b></a>
-                                                            <ul class="dropdown-menu multi-column columns-3">
-                                                                    <div class="row">
-                                                                            <div class="col-sm-4">
-                                                                                    <ul class="multi-column-dropdown">
-                                                                                            <h6>Food type</h6>  
-                                                                                            <li><a href="menu.html">Breakfast</a></li> 
-                                                                                            <li><a href="menu.html">Lunch</a></li> 
-                                                                                            <li><a href="menu.html">Dinner</a></li> 
-                                                                                    </ul>
-                                                                            </div>
-                                                                            <div class="col-sm-4">
-                                                                                    <ul class="multi-column-dropdown">
-                                                                                            <h6>Cuisine</h6> 
-                                                                                            <li><a href="menu.html">Indian Recipes</a></li> 
-                                                                                            <li><a href="menu.html">American Recipes</a></li> 
-                                                                                            <li><a href="menu.html">French Recipes</a></li> 
-                                                                                            <li><a href="menu.html">Italian Recipes</a></li> 
-                                                                                    </ul>
-                                                                            </div>
-                                                                            <div class="col-sm-4">
-                                                                                    <ul class="multi-column-dropdown">
-                                                                                            <h6>Box type</h6> 
-                                                                                            <li><a href="menu.html">Diet</a></li> 
-                                                                                            <li><a href="menu.html">Mini</a></li> 
-                                                                                            <li><a href="menu.html">Regular</a></li> 
-                                                                                            <li><a href="menu.html">Special</a></li> 
-                                                                                    </ul>
-                                                                            </div> 
-                                                                            <div class="clearfix"></div>
-                                                                    </div>
-                                                            </ul>
-                                                    </li>
-                                                    <li><a href="about.html">About</a></li> 
-                                                    <li class="w3pages"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages <span class="caret"></span></a>
-                                                            <ul class="dropdown-menu">
-                                                                    <li><a href="icons.html">Web Icons</a></li>
-                                                                    <li><a href="codes.html">Short Codes</a></li>     
-                                                            </ul>
-                                                    </li>  
-                                                    <li><a href="contact.html">Contact Us</a></li>
+                                                    
+                                                    <li><a href="${pageContext.request.contextPath}/About">About</a></li> 
+                                                    <li><a href="${pageContext.request.contextPath}/Departments">Departments</a></li>
+                                                    <li><a href="${pageContext.request.contextPath}/Contact">Contact Us</a></li>
                                             </ul>
                                     </div>
                                     <div class="cart cart box_1"> 

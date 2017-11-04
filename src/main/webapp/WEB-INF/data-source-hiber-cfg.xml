@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-4.0.xsd        
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+	<!-- Connect Hibernate and DataSource -->
+	<bean id="myDataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/restaurant" />
+		<property name="username" value="root" />
+		<property name="password" value="" />
+	</bean>
+
+	<bean id="mySessionFactory"
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource" ref="myDataSource" />
+
+		<property name="annotatedClasses">
+			<list>
+				<value>com.jds.jds.customerapp.Model.Category</value>
+				<value>com.jds.jds.customerapp.Model.Customer</value>
+				<value>com.jds.jds.customerapp.Model.DateCost</value>
+				<value>com.jds.jds.customerapp.Model.DateRevenue</value>
+				<value>com.jds.jds.customerapp.Model.Department</value>
+				<value>com.jds.jds.customerapp.Model.Food</value>
+				<value>com.jds.jds.customerapp.Model.MenuDepartment</value>
+				<value>com.jds.jds.customerapp.Model.MonthCost</value>
+				<value>com.jds.jds.customerapp.Model.OrderDetail</value>
+				<value>com.jds.jds.customerapp.Model.OrderFood</value>
+				<value>com.jds.jds.customerapp.Model.Payment</value>
+				<value>com.jds.jds.customerapp.Model.RestaurantTable</value>
+				<value>com.jds.jds.customerapp.Model.Staff</value>
+			</list>
+		</property>
+
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.connection.CharSet">utf8</prop>
+				<prop key="hibernate.connection.characterEncoding">utf8</prop>
+				<prop key="hibernate.connection.useUnicode">true</prop>		
+			</props>
+		</property>
+	</bean>
+	<!-- End Connect Hibernate and DataSource -->
+	
+	<!-- Declare DAOImpl (Use sessionFactory) -->
+	<bean id="departmentDAO" class="com.jds.jds.customerapp.Dao.DepartmentDAOImpl">
+		<property name="sessionFactory" ref="mySessionFactory" />
+	</bean>
+	
+	<!-- Transaction AOP -->
+	<tx:annotation-driven proxy-target-class="true" transaction-manager="txManager" />
+
+	<bean id="txManager"
+		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="mySessionFactory" />
+	</bean>
+	
+	
+	<!-- End Transaction AOP -->
+</beans>
+
