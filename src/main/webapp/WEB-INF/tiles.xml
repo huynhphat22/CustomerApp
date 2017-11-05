@@ -11,7 +11,6 @@
         <put-attribute name="body" value="" />
         <put-attribute name="footer" value="/WEB-INF/views/layouttemplate/Footer.jsp" />
         <put-attribute name="banner" value="/WEB-INF/views/layouttemplate/Banner.jsp"/>
-        <put-attribute name="cartjs" value="/WEB-INF/views/layouttemplate/Cartjs.jsp"/>
         <put-list-attribute name="css">
             <add-attribute value="/css/bootstrap.css" />
             <add-attribute value="/css/font-awesome.css" />
@@ -22,6 +21,7 @@
             <add-attribute value="/js/jquery-2.2.3.min.js"/>
         </put-list-attribute>
         <put-list-attribute name="js">
+      
         </put-list-attribute>
         <put-list-attribute name="fonts">
             
@@ -33,4 +33,41 @@
         <put-attribute name="body" value="/WEB-INF/views/Home/Index.jsp"/>
         <put-attribute name="banner" value="/WEB-INF/views/Home/Banner-Home.jsp"/>
     </definition>
+    <definition name="menu" extends="DefaultTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/Home/Menu.jsp"/>
+    </definition>
+    
+    <definition name="foods" extends="DefaultTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/Home/Foods.jsp"/>
+    </definition>
+    
+     <definition name="login" extends="DefaultTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/Home/Login.jsp"/>
+    </definition>
+    
+     <definition name="sign-up" extends="DefaultTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/Home/SignUp.jsp"/>
+    </definition>
+    
+    <definition name="contact" extends="DefaultTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/Home/Contact.jsp"/>
+    </definition>
+    
+     <definition name="departments" extends="DefaultTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/Home/Departments.jsp"/>
+    </definition>
+    
+    <definition name="about" extends="DefaultTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/Home/About.jsp"/>
+    </definition>
+    
+    <definition name="help" extends="DefaultTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/Home/Help.jsp"/>
+    </definition>
+    
+    <definition name="offers" extends="DefaultTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/Home/Offers.jsp"/>
+    </definition>
+    
+    
 </tiles-definitions>
