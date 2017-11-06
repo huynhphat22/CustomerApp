@@ -13,7 +13,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "staff", catalog = "restaurant")
-public class Staff implements java.io.Serializable {
+public class Staff {
 
 	private Integer staffId;
 	private String staffName;

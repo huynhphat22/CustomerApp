@@ -1,7 +1,5 @@
 package com.jds.jds.customerapp.Model;
 
-
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,7 +12,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "department", catalog = "restaurant")
-public class Department implements java.io.Serializable {
+public class Department {
 
 	private Integer departmentId;
 	private String departmentName;

@@ -1,12 +1,14 @@
 package com.jds.jds.customerapp.Model;
 
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 
 @Embeddable
-public class MenuDepartmentId implements java.io.Serializable {
+public class MenuDepartmentId implements  Serializable   {
 
 	private int departmentId;
 	private int foodId;

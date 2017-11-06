@@ -12,7 +12,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "order_detail", catalog = "restaurant")
-public class OrderDetail implements java.io.Serializable {
+public class OrderDetail  {
 
 	private OrderDetailId id;
 	private short quantity;

@@ -14,7 +14,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "date_cost", catalog = "restaurant")
-public class DateCost implements java.io.Serializable {
+public class DateCost {
 
 	private DateCostId id;
 	private String typeOfCost;

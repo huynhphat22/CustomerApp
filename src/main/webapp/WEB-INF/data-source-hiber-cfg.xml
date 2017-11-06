@@ -52,6 +52,27 @@
 	</bean>
 	<!-- End Connect Hibernate and DataSource -->
 	
+	<!-- Declare DAOImpl (Use sessionFactory) -->
+	<bean id="departmentDAO" class="com.jds.jds.customerapp.Dao.DepartmentDAOImpl">
+		<property name="sessionFactory" ref="mySessionFactory" />
+	</bean>
+	
+	<bean id="categoryDAO" class="com.jds.jds.customerapp.Dao.CategoryDAOImpl">
+		<property name="sessionFactory" ref="mySessionFactory" />
+	</bean>
+	
+	<bean id="foodDAO" class="com.jds.jds.customerapp.Dao.FoodDAOImpl">
+		<property name="sessionFactory" ref="mySessionFactory" />
+	</bean>
+	<!-- Transaction AOP -->
+	<tx:annotation-driven proxy-target-class="true" transaction-manager="txManager" />
+
+	<bean id="txManager"
+		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="mySessionFactory" />
+	</bean>
+	
+	
 	<!-- End Transaction AOP -->
 </beans>
 

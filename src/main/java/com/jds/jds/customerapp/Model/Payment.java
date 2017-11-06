@@ -17,7 +17,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "payment", catalog = "restaurant")
-public class Payment implements java.io.Serializable {
+public class Payment {
 
 	private Integer paymentId;
 	private int orderId;

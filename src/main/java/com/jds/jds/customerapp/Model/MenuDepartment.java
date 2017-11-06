@@ -12,7 +12,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "menu_department", catalog = "restaurant")
-public class MenuDepartment implements java.io.Serializable {
+public class MenuDepartment  {
 
 	private MenuDepartmentId id;
 	private int price;
