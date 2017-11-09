@@ -1,4 +1,5 @@
 <%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 	<div class="container">	
 		<ol class="breadcrumb w3l-crumbs">
 			<li><a href="${pageContext.servletContext.contextPath}/#"><i class="fa fa-home"></i> Home</a></li> 
@@ -13,42 +14,11 @@
 			<h3 class="w3ls-title">Menu</h3>
 			<p class="w3lsorder-text">Here your Staple Food Varieties</p>
 			<div class="menu-agileinfo">  
+			<c:forEach items="${listCategories }" var ="cat">
 				<div class="col-md-4 col-sm-4 col-xs-6 menu-w3lsgrids"> 
-					<a href="${pageContext.servletContext.contextPath}/Foods"> Breakfast</a>
+					<a href="${pageContext.servletContext.contextPath}/Foods">${cat.categoryName }</a>
 				</div> 
-				<div class="col-md-4 col-sm-4 col-xs-6 menu-w3lsgrids"> 
-					<a href="${pageContext.servletContext.contextPath}/Foods"> Salads</a>
-				</div> 
-				<div class="col-md-4 col-sm-4 col-xs-6 menu-w3lsgrids"> 
-					<a href="${pageContext.servletContext.contextPath}/Foods"> Hot Food</a>
-				</div> 
-				<div class="col-md-4 col-sm-4 col-xs-6 menu-w3lsgrids"> 
-					<a href="${pageContext.servletContext.contextPath}/Foods"> Breads</a>
-				</div> 
-				<div class="col-md-4 col-sm-4 col-xs-6 menu-w3lsgrids"> 
-					<a href="${pageContext.servletContext.contextPath}/Foods"> Deli Pots & Little Pots</a>
-				</div> 
-				<div class="col-md-4 col-sm-4 col-xs-6 menu-w3lsgrids"> 
-					<a href="${pageContext.servletContext.contextPath}/Foods"> Snacks & Treats</a>
-				</div> 
-				<div class="col-md-4 col-sm-4 col-xs-6 menu-w3lsgrids"> 
-					<a href="${pageContext.servletContext.contextPath}/Foods"> Drinks</a>
-				</div> 
-				<div class="col-md-4 col-sm-4 col-xs-6 menu-w3lsgrids"> 
-					<a href="${pageContext.servletContext.contextPath}/Foods"> South Indian</a>
-				</div> 
-				<div class="col-md-4 col-sm-4 col-xs-6 menu-w3lsgrids"> 
-					<a href="${pageContext.servletContext.contextPath}/Foods"> Catering</a>
-				</div> 
-				<div class="col-md-4 col-sm-4 col-xs-6 menu-w3lsgrids"> 
-					<a href="${pageContext.servletContext.contextPath}/Foods"> Soups</a>
-				</div> 
-				<div class="col-md-4 col-sm-4 col-xs-6 menu-w3lsgrids"> 
-					<a href="${pageContext.servletContext.contextPath}/Foods"> Lunchbox</a>
-				</div> 
-				<div class="col-md-4 col-sm-4 col-xs-6 menu-w3lsgrids"> 
-					<a href="${pageContext.servletContext.contextPath}/Foods"> Dinner</a>
-				</div> 
+			</c:forEach>
 				<div class="clearfix"> </div> 
 			</div> 
 			<div class="w3spl-menu">

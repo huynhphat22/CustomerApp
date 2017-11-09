@@ -1,4 +1,5 @@
 <%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <div class="container">	
 		<ol class="breadcrumb w3l-crumbs">
 			<li><a href="${pageContext.servletContext.contextPath}/#"><i class="fa fa-home"></i> Home</a></li> 
@@ -13,44 +14,27 @@
 			<h3 class="w3ls-title">Departments</h3>
 			<p class="w3lsorder-text">All Departments</p>
 			<div class="menu-agileinfo">  
+			<c:forEach items="${listDepartments }" var = "dept">
 				<div class="col-md-4 col-sm-4 col-xs-6 menu-w3lsgrids"> 
-					<a href="${pageContext.servletContext.contextPath}/Menu">Lý Thường Kiệt</a>
+					<a href="${pageContext.servletContext.contextPath}/Menu?deptId=${dept.departmentId}">${dept.departmentId }</a>
 				</div> 
-				<div class="col-md-4 col-sm-4 col-xs-6 menu-w3lsgrids"> 
-					<a href="${pageContext.servletContext.contextPath}/Menu">Trần Duy Hưng</a>
-				</div> 
-				<div class="col-md-4 col-sm-4 col-xs-6 menu-w3lsgrids"> 
-					<a href="${pageContext.servletContext.contextPath}/Menu">Nguyễn Chí Thanh</a>
-				</div> 
-				<div class="col-md-4 col-sm-4 col-xs-6 menu-w3lsgrids"> 
-					<a href="${pageContext.servletContext.contextPath}/Menu"> Hoàng Văn Thụ</a>
-				</div> 
-				<div class="col-md-4 col-sm-4 col-xs-6 menu-w3lsgrids"> 
-					<a href="${pageContext.servletContext.contextPath}/Menu"> Võ Thị Sáu</a>
-				</div> 
-				<div class="col-md-4 col-sm-4 col-xs-6 menu-w3lsgrids"> 
-					<a href="${pageContext.servletContext.contextPath}/Menu"> Nguyễn Thị Minh Khai</a>
-				</div> 
-				<div class="col-md-4 col-sm-4 col-xs-6 menu-w3lsgrids"> 
-					<a href="${pageContext.servletContext.contextPath}/Menu"> Võ Văn Tần</a>
-				</div> 
-				<div class="col-md-4 col-sm-4 col-xs-6 menu-w3lsgrids"> 
-					<a href="${pageContext.servletContext.contextPath}/Menu"> Quang Trung</a>
-				</div> 
-				<div class="col-md-4 col-sm-4 col-xs-6 menu-w3lsgrids"> 
-					<a href="${pageContext.servletContext.contextPath}/Menu"> Phan Huy Ích</a>
-				</div> 
-				<div class="col-md-4 col-sm-4 col-xs-6 menu-w3lsgrids"> 
-					<a href="${pageContext.servletContext.contextPath}/Menu"> Lê Văn Sỹ</a>
-				</div> 
-				<div class="col-md-4 col-sm-4 col-xs-6 menu-w3lsgrids"> 
-					<a href="${pageContext.servletContext.contextPath}/Menu"> Nguyễn Văn Trỗi</a>
-				</div> 
-				<div class="col-md-4 col-sm-4 col-xs-6 menu-w3lsgrids"> 
-					<a href="${pageContext.servletContext.contextPath}/Menu"> 3 Tháng 2</a>
-				</div> 
+			</c:forEach>
 				<div class="clearfix"> </div> 
 			</div> 
+			<div class="row">
+				<div class="col-sm-6 col-sm-offset-3">
+					<ul class="pagination">
+						<c:forEach var="i" begin = "1" end="${count }">
+							<c:if test="${page == i }">
+								<li class="active"><a href="${pageContext.servletContext.contextPath}/Departments?page=${i}">${i }</a></li>
+							</c:if>
+							<c:if test="${page != i }">
+								<li><a href="${pageContext.servletContext.contextPath}/Departments?page=${i}">${i }</a></li>
+							</c:if>
+						</c:forEach>
+					</ul>
+				</div>
+			</div>
 		</div> 
 	</div>
 	<!-- //menu list -->    
