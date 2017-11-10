@@ -56,7 +56,7 @@
                                                     <!-- Mega Menu -->
                                                     
                                                     <li><a href="${pageContext.request.contextPath}/About">About</a></li> 
-                                                    <li><a href="${pageContext.request.contextPath}/Departments">Departments</a></li>
+                                                    <li><a href="${pageContext.request.contextPath}/Departments?page=1">Departments</a></li>
                                                     <li><a href="${pageContext.request.contextPath}/Contact">Contact Us</a></li>
                                             </ul>
                                     </div>

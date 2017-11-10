@@ -8,84 +8,81 @@ import org.hibernate.criterion.Projections;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.jds.jds.customerapp.Model.Department;
+import com.jds.jds.customerapp.Model.Category;
 
 @Transactional
-public class DepartmentDAOImpl implements DepartmentDAO {
+public class CategoryDAOImpl implements CategoryDAO{
 
 	@Autowired
 	private SessionFactory sessionFactory;
+	
 
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
 
 	@Override
-	public Department save(Department department) {
+	public Category save(Category category) {
 		// TODO Auto-generated method stub
 		Session session = this.sessionFactory.getCurrentSession();
-		session.persist(department);
-		return department;
+		session.persist(category);
+		return category;
 	}
 
 	@Override
-	public Department update(Department department) {
+	public Category update(Category category) {
 		// TODO Auto-generated method stub
 		Session session = this.sessionFactory.getCurrentSession();
-		session.update(department);
-		return department;
+		session.update(category);
+		return category;
 	}
 
 	@Override
 	public void delete(int id) {
 		// TODO Auto-generated method stub
 		Session session = this.sessionFactory.getCurrentSession();
-		Department department = this.findById(id);
-		if (department != null) {
-			session.delete(department);
+		Category category = this.findById(id);
+		if(category != null) {
+			session.delete(category);
 		}
 	}
 
 	@Override
-	public Department findById(int id) {
+	public Category findById(int id) {
 		// TODO Auto-generated method stub
 		Session session = this.sessionFactory.getCurrentSession();
-		return session.get(Department.class, id);
+		Category category = session.get(Category.class, id);
+		return category;
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public Iterable<Department> findAll() {
+	public Iterable<Category> findAll() {
 		// TODO Auto-generated method stub
-
 		Session session = this.sessionFactory.getCurrentSession();
-
-		Iterable<Department> list = session.createQuery("from Department").list();
-
+		Iterable<Category> list = session.createQuery("from Category").list();
 		return list;
-
 	}
 
+	
+
+	@Override
 	public long count() {
+		// TODO Auto-generated method stub
 		Session session = this.sessionFactory.getCurrentSession();
-		Criteria criteriaCount = session.createCriteria(Department.class);
+		Criteria criteriaCount = session.createCriteria(Category.class);
 		criteriaCount.setProjection(Projections.rowCount());
 		return (long) criteriaCount.uniqueResult();
 	}
 
-	public Iterable<Department> paginateDepartment(int page, String sort) {
-
-		int pageSize = 10;
-		int start = (page - 1) * pageSize;
+	@Override
+	public Iterable<Category> findByDepartmentId(int departmentId) {
+		// TODO Auto-generated method stub
 		
 		Session session = this.sessionFactory.getCurrentSession();
-
-		Criteria criteria = session.createCriteria(Department.class);
-		criteria.setFirstResult(start);
-		criteria.setMaxResults(pageSize);
-		criteria.addOrder(Order.asc(sort));
-
-		Iterable<Department> list = criteria.list();
+		String hql = "SELECT DISTINCT c FROM Category c INNER JOIN Food f ON c.categoryId = f.categoryId "
+				+ "INNER JOIN MenuDepartment md ON (f.foodId = md.id.foodId and md.id.departmentId = " + departmentId +  ")";
+		Iterable<Category> list = session.createQuery(hql).list();
 		return list;
 	}
 

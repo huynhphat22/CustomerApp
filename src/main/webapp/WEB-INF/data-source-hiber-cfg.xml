@@ -47,6 +47,7 @@
 				<prop key="hibernate.connection.CharSet">utf8</prop>
 				<prop key="hibernate.connection.characterEncoding">utf8</prop>
 				<prop key="hibernate.connection.useUnicode">true</prop>		
+				<prop key="hibernate.enable_lazy_load_no_trans">true</prop>
 			</props>
 		</property>
 	</bean>
@@ -57,6 +58,17 @@
 		<property name="sessionFactory" ref="mySessionFactory" />
 	</bean>
 	
+	<bean id="categoryDAO" class="com.jds.jds.customerapp.Dao.CategoryDAOImpl">
+		<property name="sessionFactory" ref="mySessionFactory" />
+	</bean>
+	
+	<bean id="foodDAO" class="com.jds.jds.customerapp.Dao.FoodDAOImpl">
+		<property name="sessionFactory" ref="mySessionFactory" />
+	</bean>
+	
+	<bean id="menuDepartmentDAO" class="com.jds.jds.customerapp.Dao.MenuDepartmentDAOImpl">
+		<property name="sessionFactory" ref="mySessionFactory" />
+	</bean>
 	<!-- Transaction AOP -->
 	<tx:annotation-driven proxy-target-class="true" transaction-manager="txManager" />
 
