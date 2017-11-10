@@ -14,6 +14,23 @@
 			<h3 class="w3ls-title">Departments</h3>
 			<p class="w3lsorder-text">All Departments</p>
 			<div class="menu-agileinfo">  
+			
+			<div class="row">
+				<div class="col-sm-6 col-sm-offset-3">
+					<ul class="pagination">
+						<c:forEach var="i" begin = "1" end="${count }">
+							<c:if test="${page == i }">
+								<li class="active"><a>${i }</a></li>
+							</c:if>
+							<c:if test="${page != i }">
+								<li><a href="${pageContext.servletContext.contextPath}/Departments?page=${i}">${i }</a></li>
+							</c:if>
+						</c:forEach>
+					</ul>
+				</div>
+			</div>
+			
+			
 			<c:forEach items="${listDepartments }" var = "dept">
 				<div class="col-md-4 col-sm-4 col-xs-6 menu-w3lsgrids"> 
 					<a href="${pageContext.servletContext.contextPath}/Menu?deptId=${dept.departmentId}">${dept.departmentId }</a>
@@ -26,7 +43,7 @@
 					<ul class="pagination">
 						<c:forEach var="i" begin = "1" end="${count }">
 							<c:if test="${page == i }">
-								<li class="active"><a href="${pageContext.servletContext.contextPath}/Departments?page=${i}">${i }</a></li>
+								<li class="active"><a>${i }</a></li>
 							</c:if>
 							<c:if test="${page != i }">
 								<li><a href="${pageContext.servletContext.contextPath}/Departments?page=${i}">${i }</a></li>

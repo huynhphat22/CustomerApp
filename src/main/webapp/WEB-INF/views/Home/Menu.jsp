@@ -16,7 +16,9 @@
 			<div class="menu-agileinfo">  
 			<c:forEach items="${listCategories }" var ="cat">
 				<div class="col-md-4 col-sm-4 col-xs-6 menu-w3lsgrids"> 
-					<a href="${pageContext.servletContext.contextPath}/Foods">${cat.categoryName }</a>
+					<a href="${pageContext.servletContext.contextPath}/Foods?page=1&deptId=${deptId}&catId=${cat.categoryId}">
+						${cat.categoryName }
+					</a>
 				</div> 
 			</c:forEach>
 				<div class="clearfix"> </div> 
