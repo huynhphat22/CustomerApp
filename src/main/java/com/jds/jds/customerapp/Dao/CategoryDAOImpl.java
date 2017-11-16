@@ -64,22 +64,7 @@ public class CategoryDAOImpl implements CategoryDAO{
 		return list;
 	}
 
-	@Override
-	public Iterable<Category> paginateCategory(int page, String sort) {
-		// TODO Auto-generated method stub
-		int pageSize = 10;
-		int start = (page - 1) * pageSize;
-		
-		Session session = this.sessionFactory.getCurrentSession();
-
-		Criteria criteria = session.createCriteria(Category.class);
-		criteria.setFirstResult(start);
-		criteria.setMaxResults(pageSize);
-		criteria.addOrder(Order.asc(sort));
-
-		Iterable<Category> list = criteria.list();
-		return list;
-	}
+	
 
 	@Override
 	public long count() {
@@ -91,7 +76,7 @@ public class CategoryDAOImpl implements CategoryDAO{
 	}
 
 	@Override
-	public Iterable<Category> findCategoriesByDepartmentId(int departmentId) {
+	public Iterable<Category> findByDepartmentId(int departmentId) {
 		// TODO Auto-generated method stub
 		
 		Session session = this.sessionFactory.getCurrentSession();
