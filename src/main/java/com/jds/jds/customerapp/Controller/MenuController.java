@@ -22,7 +22,7 @@ public class MenuController {
 	public ModelAndView menu(@RequestParam("deptId") int departmentId) {
 		ModelAndView mav = new ModelAndView("menu");
 		
-		List<Category> list = (List<Category>) this.categoryDAO.findCategoriesByDepartmentId(departmentId);
+		List<Category> list = (List<Category>) this.categoryDAO.findByDepartmentId(departmentId);
 		
 		mav.addObject("listCategories", list);
 		
