@@ -22,7 +22,7 @@ public class DepartmentsController {
 	@RequestMapping(value = "/Departments", method = RequestMethod.GET)
 	public ModelAndView departments(@RequestParam("page") int page) {
 		ModelAndView mav = new ModelAndView("departments");
-		List<Department> listDepartments = (List<Department>) this.departmentDAO.paginateDepartment(page, "address");
+		List<Department> listDepartments = (List<Department>) this.departmentDAO.paginateDepartment(page, "departmentId");
 		long count = this.departmentDAO.count()/10;
 		mav.addObject("count", count);
 		mav.addObject("page", page);
