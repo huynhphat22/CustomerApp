@@ -79,7 +79,7 @@ public class MenuDepartmentDAOImpl implements MenuDepartmentDAO {
 		String hql = "SELECT count(*) FROM MenuDepartment md INNER JOIN Department d ON "
 				+ "(d.departmentId = md.id.departmentId AND d.departmentId = " + departmentId + ")"
 				+ "INNER JOIN Food f ON f.foodId = md.id.foodId INNER JOIN Category c ON "
-				+ "(f.categoryId = c.categoryId AND c.categoryId = " + categoryId + ")";
+				+ "(f.category.categoryId = c.categoryId AND c.categoryId = " + categoryId + ")";
 		return (long)session.createQuery(hql).uniqueResult();
 	}
 	
@@ -95,7 +95,7 @@ public class MenuDepartmentDAOImpl implements MenuDepartmentDAO {
 		String hql = "SELECT md FROM MenuDepartment md INNER JOIN Department d ON "
 				+ "(d.departmentId = md.id.departmentId AND d.departmentId = " + departmentId + ")"
 				+ "INNER JOIN Food f ON f.foodId = md.id.foodId INNER JOIN Category c ON "
-				+ "(f.categoryId = c.categoryId AND c.categoryId = " + categoryId + ")";
+				+ "(f.category.categoryId = c.categoryId AND c.categoryId = " + categoryId + ")";
 		
 		Query query = session.createQuery(hql);
 		query.setFirstResult(start);
@@ -103,6 +103,56 @@ public class MenuDepartmentDAOImpl implements MenuDepartmentDAO {
 		return query.list();
 	}
 
-	
+	@Override
+	public Iterable<MenuDepartment> searchByPriceInRange(int departmentId, int price, int page) {
+		// TODO Auto-generated method stub
+		int pageSize = 10;
+		int start = (page - 1) * pageSize;
+		Session session = this.sessionFactory.getCurrentSession();
+		
+		String hql = "SELECT md FROM MenuDepartment md WHERE md.id.departmentId = " + departmentId 
+				+ "AND md.price < " + (price + 100000) + " AND md.price > " + (price - 100000) ;
+		
+		Query query = session.createQuery(hql);
+		query.setFirstResult(start);
+		query.setMaxResults(pageSize);
+		return query.list();
+	}
 
+	@Override
+	public Iterable<MenuDepartment> searchByFoodName(int departmentId, String foodName, int page) {
+		// TODO Auto-generated method stub
+		int pageSize = 10;
+		int start = (page - 1) * pageSize;
+		Session session = this.sessionFactory.getCurrentSession();
+		
+		String hql = "SELECT md FROM MenuDepartment md INNER JOIN Food f ON (md.id.departmentId = " + departmentId 
+				+ " AND md.id.foodId = f.foodId ) WHERE f.foodName LIKE CONCAT('%', :foodName ,'%')";
+		
+		Query query = session.createQuery(hql);
+		query.setParameter("foodName", foodName);
+		query.setFirstResult(start);
+		query.setMaxResults(pageSize);
+		return query.list();
+	}
+
+	@Override
+	public long countBySearchFoodName(int departmentId, String foodName) {
+		// TODO Auto-generated method stub
+		Session session = this.sessionFactory.getCurrentSession();
+		String hql = "SELECT COUNT(*) FROM MenuDepartment md INNER JOIN Food f ON (md.id.departmentId = " + departmentId 
+				+ " AND md.id.foodId = f.foodId) WHERE f.foodName LIKE CONCAT('%', :foodName ,'%')";
+		Query query = session.createQuery(hql);
+		query.setParameter("foodName", foodName);
+		return (long)query.uniqueResult();
+	}
+
+	@Override
+	public long countBySearchPriceInRange(int departmentId, int price) {
+		// TODO Auto-generated method stub
+		Session session = this.sessionFactory.getCurrentSession();
+		String hql = "SELECT COUNT(*) FROM MenuDepartment md WHERE md.id.departmentId = " + departmentId 
+				+ "AND md.price < " + (price + 100000) + " AND md.price > " + (price - 100000) ;
+		return (long)session.createQuery(hql).uniqueResult();
+	}
 }

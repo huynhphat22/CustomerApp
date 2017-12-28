@@ -19,5 +19,13 @@ public interface MenuDepartmentDAO {
 	
 	public long countByDepartmentIdAndCategoryId(int departmentId, int categoryId);
 	
+	public long countBySearchFoodName(int departmentId, String foodName);
+	
+	public long countBySearchPriceInRange(int departmentId, int price);
+	
 	public Iterable<MenuDepartment> findByDepartmentIdAndCategoryId(int departmentId, int categoryId, int page, String sort);
+	
+	public Iterable<MenuDepartment> searchByPriceInRange(int departmentId, int price, int page);
+	
+	public Iterable<MenuDepartment> searchByFoodName(int departmentId, String foodName, int page);
 }
