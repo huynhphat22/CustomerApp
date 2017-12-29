@@ -66,11 +66,6 @@ public class FoodDAOImpl implements FoodDAO {
 		return list;
 	}
 
-	@Override
-	public Iterable<Food> paginateFood(int page, String sort) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public long count() {
@@ -92,7 +87,11 @@ public class FoodDAOImpl implements FoodDAO {
 				+ categoryId + ") "
 				+ "INNER JOIN MenuDepartment md ON (md.id.foodId = f.foodId AND md.id.departmentId = " + departmentId
 				+ ") " + "ORDER BY " + sort + " ASC";
-		
+		String hql2 = "SELECT f.foodId, f.image, f.foodName,f.flags , md.price FROM Food f INNER JOIN Category c ON (c.categoryId = f.categoryId AND c.categoryId = "
+				+ categoryId + ") "
+				+ "INNER JOIN MenuDepartment md ON (md.id.foodId = f.foodId AND md.id.departmentId = " + departmentId
+				+ ") " + "ORDER BY " + sort + " ASC";
+
 		Query query = (Query) session.createQuery(hql);
 		query.setFirstResult(start);
 		query.setMaxResults(pageSize);
