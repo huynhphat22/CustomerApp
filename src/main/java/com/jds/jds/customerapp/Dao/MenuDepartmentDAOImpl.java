@@ -13,6 +13,15 @@ import com.jds.jds.customerapp.Model.MenuDepartmentId;
 @Transactional
 public class MenuDepartmentDAOImpl implements MenuDepartmentDAO {
 
+	public MenuDepartment save(MenuDepartment menuDepartment);
+
+	public MenuDepartment update(MenuDepartment menuDepartment);
+
+	public void delete(MenuDepartmentId id);
+
+	public MenuDepartment findById(MenuDepartmentId id);
+
+	public Iterable<MenuDepartment> findAll();
 	private SessionFactory sessionFactory;
 
 	public void setSessionFactory(SessionFactory sessionFactory) {
