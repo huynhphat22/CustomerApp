@@ -13,7 +13,7 @@
         <put-attribute name="banner" value="/WEB-INF/views/layouttemplate/Banner.jsp"/>
         <put-list-attribute name="css">
             <add-attribute value="/css/bootstrap.css" />
-            <add-attribute value="/css/font-awesome.css" />
+            <add-attribute value="/css/font-awesome.min.css" />
             <add-attribute value="/css/style.css" />
             <add-attribute value="/css/owl.carousel.css" />
         </put-list-attribute>
@@ -21,7 +21,7 @@
             <add-attribute value="/js/jquery-2.2.3.min.js"/>
         </put-list-attribute>
         <put-list-attribute name="js">
-      
+      		<add-attribute value="/js/custom.js"/>
         </put-list-attribute>
         <put-list-attribute name="fonts">
             
@@ -43,13 +43,18 @@
         <put-attribute name="body" value="/WEB-INF/views/Home/Foods.jsp"/>
     </definition>
     
+    <definition name="searchFoods" extends="DefaultTemplate">
+   		<put-attribute name="title" value="Search Foods"/>
+        <put-attribute name="body" value="/WEB-INF/views/Home/SearchFoods.jsp"/>
+    </definition>
+    
      <definition name="login" extends="DefaultTemplate">
      	<put-attribute name="title" value="Login"/>
         <put-attribute name="body" value="/WEB-INF/views/Home/Login.jsp"/>
     </definition>
     
      <definition name="sign-up" extends="DefaultTemplate">
-     	<put-attribute name="title" value="Sign Up"/>
+     	<put-attribute name="title" value="Sign Up To"/>
         <put-attribute name="body" value="/WEB-INF/views/Home/SignUp.jsp"/>
     </definition>
     
@@ -81,6 +86,16 @@
      <definition name="detail-food" extends="DefaultTemplate">
      	<put-attribute name="title" value="Food Detail"/>
         <put-attribute name="body" value="/WEB-INF/views/Home/DetailFood.jsp"/>
+    </definition>
+    
+    <definition name="cart" extends="DefaultTemplate">
+     	<put-attribute name="title" value="Cart"/>
+        <put-attribute name="body" value="/WEB-INF/views/Home/Cart.jsp"/>
+    </definition>
+    
+    <definition name="history" extends="DefaultTemplate">
+     	<put-attribute name="title" value="Cart"/>
+        <put-attribute name="body" value="/WEB-INF/views/Home/History.jsp"/>
     </definition>
     
     

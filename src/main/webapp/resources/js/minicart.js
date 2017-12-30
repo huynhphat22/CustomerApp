@@ -6,7 +6,7 @@
  * @author Jeff Harrell <https://github.com/jeffharrell/>
  * @url http://www.mincartjs.com/
  * @license MIT <https://github.com/jeffharrell/mincart/raw/master/LICENSE.md>
- */
+ 
 
 ;(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 
@@ -506,14 +506,14 @@ exports.format = function(f) {
   return str;
 };
 
-/**
+*//**
  * Echos the value of a value. Trys to print the value out
  * in the best way possible given the different types.
  *
  * @param {Object} obj The object to print out.
  * @param {Object} opts Optional options object that alters the output.
- */
-/* legacy: obj, showHidden, depth, colors*/
+ *//*
+ legacy: obj, showHidden, depth, colors
 function inspect(obj, opts) {
   // default options
   var ctx = {
@@ -947,7 +947,7 @@ exports.log = function() {
 };
 
 
-/**
+*//**
  * Inherit the prototype methods from one constructor into another.
  *
  * The Function.prototype.inherits from lang.js rewritten as a standalone
@@ -959,7 +959,7 @@ exports.log = function() {
  * @param {function} ctor Constructor function which needs to inherit the
  *     prototype.
  * @param {function} superCtor Constructor function to inherit prototype from.
- */
+ *//*
 exports.inherits = function(ctor, superCtor) {
   ctor.super_ = superCtor;
   ctor.prototype = shims.create(superCtor.prototype, {
@@ -1045,15 +1045,15 @@ process.chdir = function (dir) {
 
 },{}],6:[function(require,module,exports){
 
-/*!
+!
  * EJS
  * Copyright(c) 2012 TJ Holowaychuk <tj@vision-media.ca>
  * MIT Licensed
- */
+ 
 
-/**
+*//**
  * Module dependencies.
- */
+ *//*
 
 var utils = require('./utils')
   , path = require('path')
@@ -1063,39 +1063,39 @@ var utils = require('./utils')
   , fs = require('fs')
   , read = fs.readFileSync;
 
-/**
+*//**
  * Filters.
  *
  * @type Object
- */
+ *//*
 
 var filters = exports.filters = require('./filters');
 
-/**
+*//**
  * Intermediate js cache.
  *
  * @type Object
- */
+ *//*
 
 var cache = {};
 
-/**
+*//**
  * Clear intermediate js cache.
  *
  * @api public
- */
+ *//*
 
 exports.clearCache = function(){
   cache = {};
 };
 
-/**
+*//**
  * Translate filtered code into function calls.
  *
  * @param {String} js
  * @return {String}
  * @api private
- */
+ *//*
 
 function filtered(js) {
   return js.substr(1).split('|').reduce(function(js, filter){
@@ -1107,7 +1107,7 @@ function filtered(js) {
   });
 };
 
-/**
+*//**
  * Re-throw the given `err` in context to the
  * `str` of ejs, `filename`, and `lineno`.
  *
@@ -1116,7 +1116,7 @@ function filtered(js) {
  * @param {String} filename
  * @param {String} lineno
  * @api private
- */
+ *//*
 
 function rethrow(err, str, filename, lineno){
   var lines = str.split('\n')
@@ -1142,13 +1142,13 @@ function rethrow(err, str, filename, lineno){
   throw err;
 }
 
-/**
+*//**
  * Parse the given `str` of ejs, returning the function body.
  *
  * @param {String} str
  * @return {String}
  * @api public
- */
+ *//*
 
 var parse = exports.parse = function(str, options){
   var options = options || {}
@@ -1241,14 +1241,14 @@ var parse = exports.parse = function(str, options){
   return buf;
 };
 
-/**
+*//**
  * Compile the given `str` of ejs into a `Function`.
  *
  * @param {String} str
  * @param {Object} options
  * @return {Function}
  * @api public
- */
+ *//*
 
 var compile = exports.compile = function(str, options){
   options = options || {};
@@ -1297,7 +1297,7 @@ var compile = exports.compile = function(str, options){
   }
 };
 
-/**
+*//**
  * Render the given `str` of ejs.
  *
  * Options:
@@ -1314,7 +1314,7 @@ var compile = exports.compile = function(str, options){
  * @param {Object} options
  * @return {String}
  * @api public
- */
+ *//*
 
 exports.render = function(str, options){
   var fn
@@ -1334,14 +1334,14 @@ exports.render = function(str, options){
   return fn.call(options.scope, options);
 };
 
-/**
+*//**
  * Render an EJS file at the given `path` and callback `fn(err, str)`.
  *
  * @param {String} path
  * @param {Object|Function} options or callback
  * @param {Function} fn
  * @api public
- */
+ *//*
 
 exports.renderFile = function(path, options, fn){
   var key = path + ':string';
@@ -1364,14 +1364,14 @@ exports.renderFile = function(path, options, fn){
   fn(null, exports.render(str, options));
 };
 
-/**
+*//**
  * Resolve include `name` relative to `filename`.
  *
  * @param {String} name
  * @param {String} filename
  * @return {String}
  * @api private
- */
+ *//*
 
 function resolveInclude(name, filename) {
   var path = join(dirname(filename), name);
@@ -1384,9 +1384,9 @@ function resolveInclude(name, filename) {
 
 exports.__express = exports.renderFile;
 
-/**
+*//**
  * Expose to require().
- */
+ *//*
 
 if (require.extensions) {
   require.extensions['.ejs'] = function (module, filename) {
@@ -1403,64 +1403,64 @@ if (require.extensions) {
 }
 
 },{"./filters":7,"./utils":8,"fs":2,"path":3}],7:[function(require,module,exports){
-/*!
+!
  * EJS - Filters
  * Copyright(c) 2010 TJ Holowaychuk <tj@vision-media.ca>
  * MIT Licensed
- */
+ 
 
-/**
+*//**
  * First element of the target `obj`.
- */
+ *//*
 
 exports.first = function(obj) {
   return obj[0];
 };
 
-/**
+*//**
  * Last element of the target `obj`.
- */
+ *//*
 
 exports.last = function(obj) {
   return obj[obj.length - 1];
 };
 
-/**
+*//**
  * Capitalize the first letter of the target `str`.
- */
+ *//*
 
 exports.capitalize = function(str){
   str = String(str);
   return str[0].toUpperCase() + str.substr(1, str.length);
 };
 
-/**
+*//**
  * Downcase the target `str`.
- */
+ *//*
 
 exports.downcase = function(str){
   return String(str).toLowerCase();
 };
 
-/**
+*//**
  * Uppercase the target `str`.
- */
+ *//*
 
 exports.upcase = function(str){
   return String(str).toUpperCase();
 };
 
-/**
+*//**
  * Sort the target `obj`.
- */
+ *//*
 
 exports.sort = function(obj){
   return Object.create(obj).sort();
 };
 
-/**
+*//**
  * Sort the target `obj` by the given `prop` ascending.
- */
+ *//*
 
 exports.sort_by = function(obj, prop){
   return Object.create(obj).sort(function(a, b){
@@ -1471,57 +1471,57 @@ exports.sort_by = function(obj, prop){
   });
 };
 
-/**
+*//**
  * Size or length of the target `obj`.
- */
+ *//*
 
 exports.size = exports.length = function(obj) {
   return obj.length;
 };
 
-/**
+*//**
  * Add `a` and `b`.
- */
+ *//*
 
 exports.plus = function(a, b){
   return Number(a) + Number(b);
 };
 
-/**
+*//**
  * Subtract `b` from `a`.
- */
+ *//*
 
 exports.minus = function(a, b){
   return Number(a) - Number(b);
 };
 
-/**
+*//**
  * Multiply `a` by `b`.
- */
+ *//*
 
 exports.times = function(a, b){
   return Number(a) * Number(b);
 };
 
-/**
+*//**
  * Divide `a` by `b`.
- */
+ *//*
 
 exports.divided_by = function(a, b){
   return Number(a) / Number(b);
 };
 
-/**
+*//**
  * Join `obj` with the given `str`.
- */
+ *//*
 
 exports.join = function(obj, str){
   return obj.join(str || ', ');
 };
 
-/**
+*//**
  * Truncate `str` to `len`.
- */
+ *//*
 
 exports.truncate = function(str, len, append){
   str = String(str);
@@ -1532,9 +1532,9 @@ exports.truncate = function(str, len, append){
   return str;
 };
 
-/**
+*//**
  * Truncate `str` to `n` words.
- */
+ *//*
 
 exports.truncate_words = function(str, n){
   var str = String(str)
@@ -1542,17 +1542,17 @@ exports.truncate_words = function(str, n){
   return words.slice(0, n).join(' ');
 };
 
-/**
+*//**
  * Replace `pattern` with `substitution` in `str`.
- */
+ *//*
 
 exports.replace = function(str, pattern, substitution){
   return String(str).replace(pattern, substitution || '');
 };
 
-/**
+*//**
  * Prepend `val` to `obj`.
- */
+ *//*
 
 exports.prepend = function(obj, val){
   return Array.isArray(obj)
@@ -1560,9 +1560,9 @@ exports.prepend = function(obj, val){
     : val + obj;
 };
 
-/**
+*//**
  * Append `val` to `obj`.
- */
+ *//*
 
 exports.append = function(obj, val){
   return Array.isArray(obj)
@@ -1570,9 +1570,9 @@ exports.append = function(obj, val){
     : obj + val;
 };
 
-/**
+*//**
  * Map the given `prop`.
- */
+ *//*
 
 exports.map = function(arr, prop){
   return arr.map(function(obj){
@@ -1580,9 +1580,9 @@ exports.map = function(arr, prop){
   });
 };
 
-/**
+*//**
  * Reverse the given `obj`.
- */
+ *//*
 
 exports.reverse = function(obj){
   return Array.isArray(obj)
@@ -1590,36 +1590,36 @@ exports.reverse = function(obj){
     : String(obj).split('').reverse().join('');
 };
 
-/**
+*//**
  * Get `prop` of the given `obj`.
- */
+ *//*
 
 exports.get = function(obj, prop){
   return obj[prop];
 };
 
-/**
+*//**
  * Packs the given `obj` into json string
- */
+ *//*
 exports.json = function(obj){
   return JSON.stringify(obj);
 };
 
 },{}],8:[function(require,module,exports){
 
-/*!
+!
  * EJS
  * Copyright(c) 2010 TJ Holowaychuk <tj@vision-media.ca>
  * MIT Licensed
- */
+ 
 
-/**
+*//**
  * Escape the given string of `html`.
  *
  * @param {String} html
  * @return {String}
  * @api private
- */
+ *//*
 
 exports.escape = function(html){
   return String(html)
@@ -1644,13 +1644,13 @@ var Product = require('./product'),
 
 
 
-/**
+*//**
  * Renders the Mini Cart to the page's DOM.
  *
  * @constructor
  * @param {string} name Name of the cart (used as a key for storage)
  * @param {duration} number Time in milliseconds that the cart data should persist
- */
+ *//*
 function Cart(name, duration) {
     var data, items, settings, len, i;
 
@@ -1681,12 +1681,12 @@ mixin(Cart.prototype, Pubsub.prototype);
 mixin(Cart.prototype, Storage.prototype);
 
 
-/**
+*//**
  * Adds an item to the cart. This fires an "add" event.
  *
  * @param {object} data Item data
  * @return {number} Item location in the cart
- */
+ *//*
 Cart.prototype.add = function add(data) {
     var that = this,
         items = this.items(),
@@ -1737,34 +1737,34 @@ Cart.prototype.add = function add(data) {
 };
 
 
-/**
+*//**
  * Returns the carts current items.
  *
  * @param {number} idx (Optional) Returns only that item.
  * @return {array|object}
- */
+ *//*
 Cart.prototype.items = function get(idx) {
     return (typeof idx === 'number') ? this._items[idx] : this._items;
 };
 
 
-/**
+*//**
  * Returns the carts current settings.
  *
  * @param {string} name (Optional) Returns only that setting.
  * @return {array|string}
- */
+ *//*
 Cart.prototype.settings = function settings(name) {
     return (name) ? this._settings[name] : this._settings;
 };
 
 
-/**
+*//**
  * Returns the cart discount.
  *
  * @param {object} config (Optional) Currency formatting options.
  * @return {number|string}
- */
+ *//*
 Cart.prototype.discount = function discount(config) {
     var result = parseFloat(this.settings('discount_amount_cart')) || 0;
 
@@ -1779,12 +1779,12 @@ Cart.prototype.discount = function discount(config) {
 };
 
 
-/**
+*//**
  * Returns the cart total without discounts.
  *
  * @param {object} config (Optional) Currency formatting options.
  * @return {number|string}
- */
+ *//*
 Cart.prototype.subtotal = function subtotal(config) {
     var products = this.items(),
         result = 0,
@@ -1801,12 +1801,12 @@ Cart.prototype.subtotal = function subtotal(config) {
 };
 
 
-/**
+*//**
  * Returns the cart total.
  *
  * @param {object} config (Optional) Currency formatting options.
  * @return {number|string}
- */
+ *//*
 Cart.prototype.total = function total(config) {
     var result = 0;
 
@@ -1820,12 +1820,12 @@ Cart.prototype.total = function total(config) {
 };
 
 
-/**
+*//**
  * Remove an item from the cart. This fires a "remove" event.
  *
  * @param {number} idx Item index to remove.
  * @return {boolean}
- */
+ *//*
 Cart.prototype.remove = function remove(idx) {
     var item = this._items.splice(idx, 1);
 
@@ -1842,9 +1842,9 @@ Cart.prototype.remove = function remove(idx) {
 };
 
 
-/**
+*//**
  * Saves the cart data.
- */
+ *//*
 Cart.prototype.save = function save() {
     var items = this.items(),
         settings = this.settings(),
@@ -1862,20 +1862,20 @@ Cart.prototype.save = function save() {
 };
 
 
-/**
+*//**
  * Proxies the w3sb_checkout event
  * The assumption is the view triggers this and consumers subscribe to it
  *
  * @param {object} The initiating event
- */
+ *//*
 Cart.prototype.w3sb_checkout = function w3sb_checkout(evt) {
     this.fire('w3sb_checkout', evt);
 };
 
 
-/**
+*//**
  * Destroy the cart data. This fires a "destroy" event.
- */
+ *//*
 Cart.prototype.destroy = function destroy() {
     Storage.prototype.destroy.call(this);
 
@@ -1923,12 +1923,12 @@ var defaults = module.exports = {
 };
 
 
-/**
+*//**
  * Mixes in the user config with the default config.
  *
  * @param {object} userConfig Configuration overrides
  * @return {object}
- */
+ *//*
 module.exports.load = function load(userConfig) {
     return mixin(defaults, userConfig);
 };
@@ -1978,11 +1978,11 @@ var Cart = require('./cart'),
     viewModel;
 
 
-/**
+*//**
  * Renders the Mini Cart to the page's DOM.
  *
  * @param {object} userConfig Configuration overrides
- */
+ *//*
 sbmincart.render = function (userConfig) {
     confModel = sbmincart.config = config.load(userConfig);
     cartModel = sbmincart.cart = new Cart(confModel.name, confModel.duration);
@@ -1998,9 +1998,9 @@ sbmincart.render = function (userConfig) {
 };
 
 
-/**
+*//**
  * Resets the Mini Cart and its view model
- */
+ *//*
 sbmincart.reset = function () {
     cartModel.destroy();
 
@@ -2054,12 +2054,12 @@ var parser = {
 };
 
 
-/**
+*//**
  * Creates a new product.
  *
  * @constructor
  * @param {object} data Item data
- */
+ *//*
 function Product(data) {
     data.quantity = parser.quantity(data.quantity);
     data.amount = parser.amount(data.amount);
@@ -2078,24 +2078,24 @@ function Product(data) {
 mixin(Product.prototype, Pubsub.prototype);
 
 
-/**
+*//**
  * Gets the product data.
  *
  * @param {string} key (Optional) A key to restrict the returned data to.
  * @return {array|string}
- */
+ *//*
 Product.prototype.get = function get(key) {
     return (key) ? this._data[key] : this._data;
 };
 
 
-/**
+*//**
  * Sets a value on the product. This is used rather than manually setting the
  * value so that we can fire a "change" event.
  *
  * @param {string} key
  * @param {string} value
- */
+ *//*
 Product.prototype.set = function set(key, value) {
     var setter = parser[key];
 
@@ -2109,11 +2109,11 @@ Product.prototype.set = function set(key, value) {
 };
 
 
-/**
+*//**
  * Parse and return the options for this product.
  *
  * @return {object}
- */
+ *//*
 Product.prototype.options = function options() {
     var result, key, value, amount, i, j;
 
@@ -2151,12 +2151,12 @@ Product.prototype.options = function options() {
 };
 
 
-/**
+*//**
  * Parse and return the discount for this product.
  *
  * @param {object} config (Optional) Currency formatting options.
  * @return {number|string}
- */
+ *//*
 Product.prototype.discount = function discount(config) {
     var flat, rate, num, limit, result, amount;
 
@@ -2184,12 +2184,12 @@ Product.prototype.discount = function discount(config) {
 };
 
 
-/**
+*//**
  * Parse and return the total without discounts for this product.
  *
  * @param {object} config (Optional) Currency formatting options.
  * @return {number|string}
- */
+ *//*
 Product.prototype.amount = function amount(config) {
     var result, options, len, i;
 
@@ -2208,12 +2208,12 @@ Product.prototype.amount = function amount(config) {
 };
 
 
-/**
+*//**
  * Parse and return the total for this product.
  *
  * @param {object} config (Optional) Currency formatting options.
  * @return {number|string}
- */
+ *//*
 Product.prototype.total = function total(config) {
     var result;
 
@@ -2228,12 +2228,12 @@ Product.prototype.total = function total(config) {
 };
 
 
-/**
+*//**
  * Determine if this product has the same data as another.
  *
  * @param {object|Product} data Other product.
  * @return {boolean}
- */
+ *//*
 Product.prototype.isEqual = function isEqual(data) {
     var match = false;
 
@@ -2264,19 +2264,19 @@ Product.prototype.isEqual = function isEqual(data) {
 };
 
 
-/**
+*//**
  * Determine if this product is valid.
  *
  * @return {boolean}
- */
+ *//*
 Product.prototype.isValid = function isValid() {
     return (this.get('w3ls_item') && this.amount() > 0);
 };
 
 
-/**
+*//**
  * Destroys this product. Fires a "destroy" event.
- */
+ *//*
 Product.prototype.destroy = function destroy() {
     this._data = [];
     this.fire('destroy', this);
@@ -2288,7 +2288,7 @@ Product.prototype.destroy = function destroy() {
 module.exports = Product;
 
 },{"./util/currency":15,"./util/mixin":18,"./util/pubsub":19}],14:[function(require,module,exports){
-/* jshint quotmark:double */
+ jshint quotmark:double 
 
 
 "use strict";
@@ -2443,9 +2443,9 @@ module.exports = function currency(amount, config) {
 
 module.exports = (function (window, document) {
 
-    /**
+    *//**
      * Events are added here for easy reference
-     */
+     *//*
     var cache = [];
 
     // NOOP for Node
@@ -2457,14 +2457,14 @@ module.exports = (function (window, document) {
     // Non-IE events
     } else if (document.addEventListener) {
         return {
-            /**
+            *//**
              * Add an event to an object and optionally adjust it's scope
              *
              * @param obj {HTMLElement} The object to attach the event to
              * @param type {string} The type of event excluding "on"
              * @param fn {function} The function
              * @param scope {object} Object to adjust the scope to (optional)
-             */
+             *//*
             add: function (obj, type, fn, scope) {
                 scope = scope || obj;
 
@@ -2475,13 +2475,13 @@ module.exports = (function (window, document) {
             },
 
 
-            /**
+            *//**
              * Remove an event from an object
              *
              * @param obj {HTMLElement} The object to remove the event from
              * @param type {string} The type of event excluding "on"
              * @param fn {function} The function
-             */
+             *//*
             remove: function (obj, type, fn) {
                 var wrappedFn, item, len = cache.length, i;
 
@@ -2504,14 +2504,14 @@ module.exports = (function (window, document) {
     // IE events
     } else if (document.attachEvent) {
         return {
-            /**
+            *//**
              * Add an event to an object and optionally adjust it's scope (IE)
              *
              * @param obj {HTMLElement} The object to attach the event to
              * @param type {string} The type of event excluding "on"
              * @param fn {function} The function
              * @param scope {object} Object to adjust the scope to (optional)
-             */
+             *//*
             add: function (obj, type, fn, scope) {
                 scope = scope || obj;
 
@@ -2531,13 +2531,13 @@ module.exports = (function (window, document) {
             },
 
 
-            /**
+            *//**
              * Remove an event from an object (IE)
              *
              * @param obj {HTMLElement} The object to remove the event from
              * @param type {string} The type of event excluding "on"
              * @param fn {function} The function
-             */
+             *//*
             remove: function (obj, type, fn) {
                 var wrappedFn, item, len = cache.length, i;
 
@@ -2769,12 +2769,12 @@ var config = require('./config'),
 
 
 
-/**
+*//**
  * Creates a view model.
  *
  * @constructor
  * @param {object} model
- */
+ *//*
 function View(model) {
     var wrapper;
 
@@ -2797,9 +2797,9 @@ function View(model) {
 }
 
 
-/**
+*//**
  * Tells the view to redraw
- */
+ *//*
 View.prototype.redraw = function redraw() {
     events.remove(this.el.querySelector('form'), 'submit', this.model.cart.w3sb_checkout, this.model.cart);
     this.el.innerHTML = template(config.template, this.model);
@@ -2807,9 +2807,9 @@ View.prototype.redraw = function redraw() {
 };
 
 
-/**
+*//**
  * Tells the view to show
- */
+ *//*
 View.prototype.show = function show() {
     if (!this.isShowing) {
         css.add(document.body, constants.SHOWING_CLASS);
@@ -2818,9 +2818,9 @@ View.prototype.show = function show() {
 };
 
 
-/**
+*//**
  * Tells the view to hide
- */
+ *//*
 View.prototype.hide = function hide() {
     if (this.isShowing) {
         css.remove(document.body, constants.SHOWING_CLASS);
@@ -2829,20 +2829,20 @@ View.prototype.hide = function hide() {
 };
 
 
-/**
+*//**
  * Toggles the visibility of the view
- */
+ *//*
 View.prototype.toggle = function toggle() {
     this[this.isShowing ? 'hide' : 'show']();
 };
 
 
-/**
+*//**
  * Binds cart submit events to a form.
  *
  * @param {HTMLElement} form
  * @return {boolean}
- */
+ *//*
 View.prototype.bind = function bind(form) {
     var that = this;
 
@@ -2874,12 +2874,12 @@ View.prototype.bind = function bind(form) {
 };
 
 
-/**
+*//**
  * Adds an item to the view.
  *
  * @param {number} idx
  * @param {object} data
- */
+ *//*
 View.prototype.addItem = function addItem(idx, data) {
     this.redraw();
     this.show();
@@ -2889,12 +2889,12 @@ View.prototype.addItem = function addItem(idx, data) {
 };
 
 
-/**
+*//**
  * Changes an item in the view.
  *
  * @param {number} idx
  * @param {object} data
- */
+ *//*
 View.prototype.changeItem = function changeItem(idx, data) {
     this.redraw();
     this.show();
@@ -2904,11 +2904,11 @@ View.prototype.changeItem = function changeItem(idx, data) {
 };
 
 
-/**
+*//**
  * Removes an item from the view.
  *
  * @param {number} idx
- */
+ *//*
 View.prototype.removeItem = function removeItem(idx) {
     this.redraw();
 };
@@ -3017,4 +3017,4 @@ module.exports = viewevents = {
 };
 
 },{"./constants":11,"./util/events":16}]},{},[9,10,11,12,13,14,15,16,17,18,19,20,21,22,23])
-;
+;*/

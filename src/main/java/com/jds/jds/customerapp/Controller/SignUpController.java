@@ -20,6 +20,8 @@ public class SignUpController {
 	
 	@Autowired
 	private CustomerDAO customerDAO;
+	
+	
 	@RequestMapping(value = "/SignUp", method = RequestMethod.GET)
 	public ModelAndView signUp() {
 		ModelAndView mav = new ModelAndView("sign-up");
@@ -34,6 +36,12 @@ public class SignUpController {
 		List<String> errors = new ArrayList<String>();
 		customer.setCustomerName(customer.getCustomerName().trim());
 		customer.setPhoneNumber(customer.getPhoneNumber().trim());
+		
+		System.out.println(customer.getCustomerName());
+		System.out.println(customer.getPhoneNumber());
+		System.out.println(customer.getPassword());
+		System.out.println(rePassword);
+		System.out.println(customer.getAddress());
 		try{
 			Integer.parseInt(customer.getPhoneNumber());
 		}
@@ -52,23 +60,27 @@ public class SignUpController {
 		if(!customer.getPassword().equals(rePassword)){
 			errors.add("Confirm password does not match!");
 		}
-		if(this.customerDAO.findByPhoneNumber(customer.getPhoneNumber()) != null){
-			errors.add("Phone Number was exist!");
-		}
 		
 		if(!errors.isEmpty()){
 			mav.addObject("errors", errors);
+			return mav; 
+		}
+		else if(this.customerDAO.findByPhoneNumber(customer.getPhoneNumber()) != null){
+			errors.add("Phone Number was exist!");
+			mav.addObject("errors", errors);
+			return mav; 
 		}
 		else{
+			System.out.println("zo");
 			String password = new BCryptPasswordEncoder().encode(customer.getPassword());
 			customer.setPassword(password);
 			customer.setCustomerType("NORMAL");
-			customer.setFlags(true);
 			this.customerDAO.save(customer);
 			mav.addObject("message", "Sign Up Successfully");
 			mav.addObject("customerForm", new Customer());
+			return mav; 
 		}
-		return mav; 
+		
 	}
 }
 

@@ -14,7 +14,7 @@
 			<h3 class="w3ls-title w3ls-title1">Login to your account</h3>  
 			<div class="login-agileinfo"> 
 				<form action="#" method="post"> 
-					<input class="agile-ltext" type="text" name="Username" placeholder="Username" required="">
+					<input class="agile-ltext" type="text" name="phoneNumber" placeholder="Username" required="">
 					<input class="agile-ltext" type="password" name="password" placeholder="Password" required="">
 					<div class="wthreelogin-text"> 
 						<ul> 
@@ -29,7 +29,7 @@
 					</div>   
 					<input type="submit" value="LOGIN">
 				</form>
-				<p>Don't have an Account? <a href="signup.html"> Sign Up Now!</a></p> 
+				<p>Don't have an Account? <a href="${pageContext.servletContext.contextPath}/SignUp"> Sign Up Now!</a></p> 
 			</div>	 
 		</div>
 	</div>

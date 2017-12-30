@@ -1,4 +1,6 @@
 <%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <div class="container">
 	<ol class="breadcrumb w3l-crumbs">
 		<li><a href="#"><i class="fa fa-home"></i> Home</a></li>
@@ -11,28 +13,29 @@
 	<img class="login-w3img" src="images/img3.jpg" alt="">
 	<div class="container">
 		<h3 class="w3ls-title w3ls-title1">Sign Up to your account</h3>
+		<c:forEach items="${errors }" var="error">
+			<strong class="text-danger text-center"><c:out value="${error }"/></strong>
+		</c:forEach>
+		<strong class="text-success text-center">${message }</strong>
 		<div class="login-agileinfo">
-			<form action="#" method="post">
-				<input class="agile-ltext" type="text" name="Username"
-					placeholder="Username" required=""> <input
-					class="agile-ltext" type="email" name="Your Email"
-					placeholder="Your Email" required=""> <input
-					class="agile-ltext" type="password" name="password"
-					placeholder="Password" required=""> <input
-					class="agile-ltext" type="password" name="Confirm Password"
-					placeholder="Confirm Password" required="">
-				<div class="wthreelogin-text">
-					<ul>
-						<li><label class="checkbox"><input type="checkbox"
-								name="checkbox"><i></i> <span> I agree to the
-									terms of service</span> </label></li>
-					</ul>
-					<div class="clearfix"></div>
-				</div>
+			<form:form action="${pageContext.servletContext.contextPath}/SignUp" method="post" commandName="customerForm">
+				<form:input class="agile-ltext" type="text" path="customerName"
+					placeholder="Your Name" required="true"/> 
+				<form:input
+					class="agile-ltext" type="text" path="phoneNumber"
+					placeholder="Your Phone Number" required="true"/> 
+				<form:input
+					class="agile-ltext" type="password" path="password"
+					placeholder="Password" required="true"/> 
+				<input
+					class="agile-ltext" type="password" name="rePassword"
+					placeholder="Confirm Password" required="true"/>
+				<form:input class="agile-ltext" type="text" path="address"
+					placeholder="Address"  required="false"/>
 				<input type="submit" value="Sign Up">
-			</form>
+			</form:form>
 			<p>
-				Already have an account? <a href="login.html"> Login Now!</a>
+				Already have an account? <a href="${pageContext.servletContext.contextPath}/Login"> Login Now!</a>
 			</p>
 		</div>
 	</div>

@@ -13,7 +13,7 @@
 	<bean id="myDataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/restaurant" />
+		<property name="url" value="jdbc:mysql://localhost:3306/restaurant?useUnicode=true&amp;connectionCollation=utf8_unicode_ci&amp;characterSetResults=utf8&amp;characterEncoding=utf-8" />
 		<property name="username" value="root" />
 		<property name="password" value="" />
 	</bean>
@@ -34,7 +34,6 @@
 				<value>com.jds.jds.customerapp.Model.MonthCost</value>
 				<value>com.jds.jds.customerapp.Model.OrderDetail</value>
 				<value>com.jds.jds.customerapp.Model.OrderFood</value>
-				<value>com.jds.jds.customerapp.Model.Payment</value>
 				<value>com.jds.jds.customerapp.Model.RestaurantTable</value>
 				<value>com.jds.jds.customerapp.Model.Staff</value>
 			</list>
@@ -67,6 +66,18 @@
 	</bean>
 	
 	<bean id="menuDepartmentDAO" class="com.jds.jds.customerapp.Dao.MenuDepartmentDAOImpl">
+		<property name="sessionFactory" ref="mySessionFactory" />
+	</bean>
+	
+	<bean id="customerDAO" class="com.jds.jds.customerapp.Dao.CustomerDAOImpl">
+		<property name="sessionFactory" ref="mySessionFactory" />
+	</bean>
+	
+	<bean id="orderFoodDAO" class="com.jds.jds.customerapp.Dao.OrderFoodDAOImpl">
+		<property name="sessionFactory" ref="mySessionFactory" />
+	</bean>
+	
+	<bean id="orderDetailDAO" class="com.jds.jds.customerapp.Dao.OrderDetailDAOImpl">
 		<property name="sessionFactory" ref="mySessionFactory" />
 	</bean>
 	<!-- Transaction AOP -->

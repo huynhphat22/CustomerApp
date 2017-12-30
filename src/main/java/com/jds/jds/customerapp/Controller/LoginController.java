@@ -29,14 +29,22 @@ public class LoginController {
     @RequestMapping(value = "/Login", method = RequestMethod.POST)
     public ModelAndView login(HttpServletRequest request, @RequestParam("phoneNumber") String phoneNumber, @RequestParam("password") String password){
     	List<String> errors = new ArrayList<String>();
+    	System.out.println("phoneNumber: " + phoneNumber);
+    	System.out.println("password: " + password);
     	Customer customer = this.customerDAO.findByPhoneNumber(phoneNumber); 
     	if(customer == null){
     		errors.add("Phone Number is incorrect!");
+    		ModelAndView mav = new ModelAndView("login");
+    		mav.addObject("errors", errors);
+    		return mav;
     	}
+    	
+    	System.out.println("password: " + password);
     	BCryptPasswordEncoder bpe = new BCryptPasswordEncoder();
     	if(!bpe.matches(password, customer.getPassword())){
     		errors.add("Phone Number or password was wrong!");
     	}
+    	System.out.println("password: " + password);
     	if(!errors.isEmpty()){
     		ModelAndView mav = new ModelAndView("login");
     		mav.addObject("errors", errors);

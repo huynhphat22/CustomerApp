@@ -14,6 +14,13 @@ public interface OrderFoodDAO {
 	
 	OrderFood findById (int id);
 	
-	
 	public OrderFood update(OrderFood orderFood);
+	
+	public Iterable<OrderFood> paginateOrderFood(int page, String sort);
+	
+	public long count();
+	
+	public long countByCustomerId(int customerId);
+	
+	public Iterable<OrderFood> paginateOrderFoodByCustomerId(int page, String sort, int customerId);
 }

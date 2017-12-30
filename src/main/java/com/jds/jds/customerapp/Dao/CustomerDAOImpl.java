@@ -1,9 +1,10 @@
 package com.jds.jds.customerapp.Dao;
 
+import java.util.Date;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.jds.jds.customerapp.Model.Customer;
@@ -12,7 +13,6 @@ import com.jds.jds.customerapp.Model.Customer;
 public class CustomerDAOImpl implements CustomerDAO {
 
 
-	@Autowired
 	private SessionFactory sessionFactory;
 	
 
@@ -24,6 +24,8 @@ public class CustomerDAOImpl implements CustomerDAO {
 	public Customer save(Customer customer) {
 		// TODO Auto-generated method stub
 		Session session = this.sessionFactory.getCurrentSession();
+		customer.setFlags(true);
+		customer.setDateCreated(new Date());
 		session.persist(customer);
 		return customer;
 	}
@@ -55,6 +57,18 @@ public class CustomerDAOImpl implements CustomerDAO {
 		return customer;
 	}
 
+	
+	@Override
+	public Customer findByPhoneNumber(String phoneNumber) {
+		// TODO Auto-generated method stub
+		Session session = this.sessionFactory.getCurrentSession();
+		Query query = (Query) session.createQuery("from Customer c WHERE c.phoneNumber = :phoneNumber");
+		query.setParameter("phoneNumber", phoneNumber);
+		return (Customer) query.uniqueResult();
+	}
+	
+	
+	
 	@SuppressWarnings("unchecked")
 	@Override
 	public Iterable<Customer> findAll() {
@@ -64,14 +78,6 @@ public class CustomerDAOImpl implements CustomerDAO {
 		return list;
 	}
 
-	@Override
-	public Customer findByPhoneNumber(String phoneNumber) {
-		// TODO Auto-generated method stub
-		Session session = this.sessionFactory.getCurrentSession();
-		Query query = session.createQuery("select c from Customer c WHERE c.phoneNumber = :phoneNumber");
-		query.setParameter("phoneNumber", phoneNumber);
-		
-		return (Customer)query.uniqueResult();
-	}
+	
 
 }

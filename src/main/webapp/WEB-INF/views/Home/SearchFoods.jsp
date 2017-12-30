@@ -22,7 +22,7 @@
 										<li class="active"><a>${i }</a></li>
 									</c:if>
 									<c:if test="${page != i }">
-										<li><a href="${pageContext.servletContext.contextPath}/Foods?page=${i}&deptId=${deptId}&catId=${catId}">${i }</a></li>
+										<li><a href="${pageContext.servletContext.contextPath}/SearchFoods?page=${i}&deptId=${deptId}&q=${q}">${i }</a></li>
 									</c:if>
 								</c:forEach>
 						</ul>
@@ -72,7 +72,7 @@
 										<input type="hidden" name="departmentId" value="${food.id.departmentId }">
 										<input type="hidden" name="quantity" value="1"> 
 										<input type='hidden' name='image' value="${food.food.image }"/>
-										<input type="hidden" name="foodName" value="${food.food.foodName }"> 
+										<input type="hidden" name="product_name" value="${food.food.foodName }"> 
 										<input type="hidden" name="price" value="${food.price }"> 
 										<button value="1" onclick="addToCart(${food.id.foodId})" type="button" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
 										<span class="w3-agile-line"> </span>
@@ -95,7 +95,7 @@
 										<li class="active"><a>${i }</a></li>
 									</c:if>
 									<c:if test="${page != i }">
-										<li><a href="${pageContext.servletContext.contextPath}/Foods?page=${i}&deptId=${deptId}&catId=${catId}">${i }</a></li>
+										<li><a href="${pageContext.servletContext.contextPath}/SearchFoods?page=${i}&deptId=${deptId}&q=${q}">${i }</a></li>
 									</c:if>
 								</c:forEach>
 						</ul>
@@ -107,7 +107,7 @@
 					<div class="slider-left">
 						<form method="GET" action="${pageContext.servletContext.contextPath}/SearchFoods">
 							<input type="hidden" name="page" value="1"/>
-							<input type="hidden" name="deputId" value="${deptId }"/>
+							<input type="hidden" name="deptId" value="${deptId }"/>
 							<input class="form-control" type="text" name="q"/>
 							<button type="submit" class="btn btn-warning btn-block">Search</button>
 						</form>
@@ -393,28 +393,23 @@
 	
 	
 	<script>
-	function addToCart(foodId){
-		const form = $('#f' + foodId);
-		let departmentId = form.find('input[name="departmentId"]').val();
+	function addToCart(id){
+		const form = $('#f' + id);
 		let image = form.find('input[name="image"]').val();
 		let quantity = form.find('input[name="quantity"]').val();
 		let price = form.find('input[name="price"]').val();
-		let foodName = form.find('input[name="foodName"]').val();
-		
+		let productName = form.find('input[name="product_name"]').val();
 		let check = false;
 		let product = {
-			'id' : {
-				foodId : foodId,
-				departmentId : departmentId
-			},
+			'id' : id,
 			'price' : price,
 			'image' : image,
 			'quantity' : quantity,
-			'foodName': foodName
+			'productName': productName
 		}
 		let listCart = JSON.parse(sessionStorage.getItem('listCart')) || [];
 		for(let i=0 ; i< listCart.length ;i++){
-			if(listCart[i].id.foodId === product.id.foodId && listCart[i].id.departmentId === product.id.departmentId ){
+			if(listCart[i].id === product.id){
 				listCart[i].quantity = parseInt(listCart[i].quantity) + 1 ;
 				check = true;
 			}

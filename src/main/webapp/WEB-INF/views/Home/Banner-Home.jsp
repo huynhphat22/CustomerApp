@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <div class="banner">
     <!-- header -->
     <div class="header">
@@ -23,6 +24,9 @@
                                             </li> 
                                             <li class="head-dpdn">
                                                     <a href="${pageContext.request.contextPath}/Help"><i class="fa fa-question-circle" aria-hidden="true"></i> Help</a>
+                                            </li>
+                                           <li class="head-dpdn">
+                                                    <a><i class="fa fa-user-circle" aria-hidden="true"></i> <c:out value="${sessionScope.customer.customerName  }"/></a>
                                             </li>
                                     </ul>
                             </div>

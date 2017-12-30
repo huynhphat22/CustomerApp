@@ -4,7 +4,7 @@
             <section>
                 <div class="modal-body">
                     <div class="col-md-5 modal_body_left">
-                        <img src="${pageContext.servletContext.contextPath}/images/${foodDetail.food.image}" alt=" " class="img-responsive">
+                        <img src="${foodDetail.food.image}" alt=" " class="img-responsive">
                     </div>
                     <div class="col-md-7 modal_body_right single-top-right"> 
                         <h3 class="item_name">${foodDetail.food.foodName }</h3>
