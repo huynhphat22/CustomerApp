@@ -1,5 +1,6 @@
 package com.jds.jds.customerapp.Dao;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Transactional;
@@ -49,5 +50,18 @@ public class OrderDetailDAOImpl implements OrderDetailDAO {
 		Session session = this.sessionFactory.getCurrentSession();
 		OrderDetail orderDetail = session.get(OrderDetail.class, id);
 		return orderDetail;
+	}
+	
+	@Override
+	public Iterable<OrderDetail> findByCustomerIdAndOrderId(int orderId, int customerId ) {
+		// TODO Auto-generated method stub
+		Session session = this.sessionFactory.getCurrentSession();
+		Query query = session.createQuery("SELECT od FROM OrderDetail od INNER JOIN OrderFood of ON "
+				+ "(of.orderId = :orderId AND od.id.orderId = of.orderId) INNER JOIN Customer c "
+				+ "ON (c.customerId = of.customerId AND c.customerId = :customerId)");
+		query.setParameter("orderId", orderId);
+		query.setParameter("customerId", customerId);
+		
+		return query.list();
 	}
 }

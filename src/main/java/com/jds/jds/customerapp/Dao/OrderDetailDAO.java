@@ -11,4 +11,6 @@ public interface OrderDetailDAO {
 	public void delete(OrderDetailId id);
 	
 	public OrderDetail findById(OrderDetailId id);
+	
+	public Iterable<OrderDetail> findByCustomerIdAndOrderId(int orderId, int customerId );
 }

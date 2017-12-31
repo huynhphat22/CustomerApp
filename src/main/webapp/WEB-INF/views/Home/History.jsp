@@ -19,16 +19,16 @@
 						<i class="fa fa-user" aria-hidden="true"></i>
 					</div>
 					<div class="ftr-top-right">
-						<h4>Customer Info</h4>	
+						<h4>Customer Info</h4>
 					</div>
-					
+
 					<div class="clearfix"></div>
-					
-					<table class="table table-bordered" style="margin-top:5px;">
+
+					<table class="table table-bordered" style="margin-top: 5px;">
 						<tbody>
 							<tr>
 								<td><label>Customer Name</label></td>
-								<td>${customer.customerName }" </td>
+								<td>${customer.customerName }"</td>
 							</tr>
 							<tr>
 								<td><label>Address</label></td>
@@ -48,7 +48,7 @@
 							</tr>
 						</tbody>
 					</table>
-					
+
 					<div class="clearfix"></div>
 				</div>
 				<div class="col-md-8 ftr-top-grids">
@@ -57,7 +57,7 @@
 					</div>
 					<div class="ftr-top-right">
 						<h4>Order Info</h4>
-					
+
 					</div>
 					<div class="row">
 						<div class="col-sm-12">
@@ -74,34 +74,42 @@
 							</ul>
 						</div>
 					</div>
-					<table class="table table-responsive table-hover">
-						<thead>
-						<tr>
-							<th>Id</th>
-							<th>Order Type</th>
-							<th>Status</th>
-							<th>Date Created</th>
-							<th>Date Delivery</th>
-							<th>Address Delivery</th>
-							<th>Total Price</th>
-							<th>Note</th>
-						</tr>
-						</thead>
-						<tbody>
-							<c:forEach items="${list }" var = "orderFood">
-								<tr>
-									<td>${orderFood.orderId}</td>
-									<td>${orderFood.orderType}</td>
-									<td>${orderFood.status}</td>
-									<td>${orderFood.dateCreated}</td>
-									<td>${orderFood.dateDelivery}</td>
-									<td>${orderFood.addressDelivery}</td>
-									<td>${orderFood.totalPrice}</td>
-									<td>${orderFood.note}</td>
-								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
+
+					<div class="panel panel-primary">
+						<div class="panel-heading">Your order</div>
+						<div class="panel-body">
+							<table class="table table-responsive table-hover">
+								<thead>
+									<tr>
+										<th>Id</th>
+										<th>Order Type</th>
+										<th>Status</th>
+										<th>Date Created</th>
+										<th>Date Delivery</th>
+										<th>Address Delivery</th>
+										<th>Total Price</th>
+										<th>Note</th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach items="${list }" var="orderFood">
+										<tr>
+											<td>${orderFood.orderId}</td>
+											<td>${orderFood.orderType}</td>
+											<td>${orderFood.status}</td>
+											<td>${orderFood.dateCreated}</td>
+											<td>${orderFood.dateDelivery}</td>
+											<td>${orderFood.addressDelivery}</td>
+											<td>${orderFood.totalPrice}</td>
+											<td>${orderFood.note}</td>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+
+						</div>
+					</div>
+
 					<div class="clearfix"></div>
 				</div>
 				<div class="clearfix"></div>
@@ -133,8 +141,7 @@
 		</div>
 		<div class="col-md-6 subscribe-right">
 			<h3 class="w3ls-title">
-				Subscribe to Our <br>
-				<span>Newsletter</span>
+				Subscribe to Our <br> <span>Newsletter</span>
 			</h3>
 			<form action="#" method="post">
 				<input type="email" name="email" placeholder="Enter your Email..."
