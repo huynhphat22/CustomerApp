@@ -23,6 +23,30 @@
 					</div>
 
 					<div class="clearfix"></div>
+					
+					<div class="panel panel-primary">
+				      <div class="panel-heading">Change Password</div>
+				      <div class="panel-body">
+				      	<p class="text-center text-success">${message }</p>
+				      	<form method="POST">
+				      		<div class="form-group">
+				      			<label>Current Password</label>
+				      			<input class="form-control" type="password" name="password" required minLength="6" />
+				      		</div>
+				      		<div class="form-group">
+				      			<label>New Password</label>
+				      			<input class="form-control" type="password" name="newPassword" required minLength="6" />
+				      		</div>
+				      		<div class="form-group">
+				      			<label>Confirm New Password</label>
+				      			<input class="form-control" type="password" name="reNewPassword" required minLength="6" />
+				      		</div>
+				      		<button class="btn btn-info btn-block">Change Password</button>
+				      	</form>
+				      </div>
+				    </div>
+				    
+				    <div class="clearfix"></div>
 
 					<table class="table table-bordered" style="margin-top: 5px;">
 						<tbody>
@@ -48,8 +72,12 @@
 							</tr>
 						</tbody>
 					</table>
+					
+					
 
 					<div class="clearfix"></div>
+					
+					 
 				</div>
 				<div class="col-md-8 ftr-top-grids">
 					<div class="ftr-top-left">
