@@ -27,7 +27,7 @@ public class OrderDetail  {
 	public OrderDetail() {
 	}
 
-	public OrderDetail(OrderDetailId id, short quantity, Date dateCreated) {
+	public OrderDetail(OrderDetailId id, int quantity, Date dateCreated) {
 		this.id = id;
 		this.quantity = quantity;
 		this.dateCreated = dateCreated;
@@ -55,11 +55,11 @@ public class OrderDetail  {
 	}
 
 	@Column(name = "quantity", nullable = false)
-	public int  getQuantity() {
+	public int getQuantity() {
 		return this.quantity;
 	}
 
-	public void setQuantity(short quantity) {
+	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
 
