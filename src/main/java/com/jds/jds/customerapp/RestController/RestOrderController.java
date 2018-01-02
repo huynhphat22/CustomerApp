@@ -42,7 +42,7 @@ public class RestOrderController {
 	
 	@RequestMapping(value = "/api/order", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Void> paginate(@RequestBody CartInfo cartInfo) {
-		System.out.println("Co zo");
+		
 		final Calendar cal = Calendar.getInstance();
 		cal.add(cal.DATE, 3);
 
@@ -72,10 +72,10 @@ public class RestOrderController {
 			try {
 				for (FoodInfo foodInfo : listFoodInfo) {
 					MenuDepartment md = this.menuDepartmentDAO.findById(
-							new MenuDepartmentId(foodInfo.getId().getDepartmentId(), foodInfo.getId().getFoodId()));
+							new MenuDepartmentId(orderFood.getDepartmentId(), foodInfo.getFoodId()));
 
 					OrderDetailId orderDetailId = new OrderDetailId(orderFood.getOrderId(),
-							foodInfo.getId().getFoodId(), foodInfo.getId().getDepartmentId());
+							foodInfo.getFoodId());
 					OrderDetail orderDetail = new OrderDetail(orderDetailId, foodInfo.getQuantity(), "ok", new Date(),
 							true);
 					this.orderDetailDAO.save(orderDetail);

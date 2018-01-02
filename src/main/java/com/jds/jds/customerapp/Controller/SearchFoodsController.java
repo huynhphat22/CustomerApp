@@ -24,6 +24,9 @@ public class SearchFoodsController {
     		@RequestParam("page") int page){
 		ModelAndView mav = new ModelAndView("searchFoods");
 		List<MenuDepartment> listFoods = null;
+		
+		//totalPages = (count % pageQuery.getSize() != 0) ? (count / pageQuery.getSize()) + 1
+				//: count / pageQuery.getSize();
 		long count = 1;
 		try{
 			int price = Integer.parseInt(q);

@@ -1,10 +1,9 @@
 package com.jds.jds.customerapp.Entity;
 
-import com.jds.jds.customerapp.Model.MenuDepartmentId;
 
 public class FoodInfo {
 
-	private MenuDepartmentId id;
+	private int foodId;
 	private int price;
 	private int quantity;
 	private String foodName;
@@ -12,20 +11,20 @@ public class FoodInfo {
 	
 	public FoodInfo(){}
 
-	public FoodInfo(MenuDepartmentId id, int price, int quantity, String foodName, String image) {
-		this.id = id;
+	public FoodInfo(int foodId, int price, int quantity, String foodName, String image) {
+		this.foodId = foodId;
 		this.price = price;
 		this.quantity = quantity;
 		this.foodName = foodName;
 		this.image = image;
 	}
 
-	public MenuDepartmentId getId() {
-		return id;
+	public int getFoodId() {
+		return foodId;
 	}
 
-	public void setId(MenuDepartmentId id) {
-		this.id = id;
+	public void setFoodId(int foodId) {
+		this.foodId = foodId;
 	}
 
 	public int getPrice() {
@@ -58,6 +57,11 @@ public class FoodInfo {
 
 	public void setImage(String image) {
 		this.image = image;
-	}	
+	}
+	
+	
+	
+
+	
 	
 }

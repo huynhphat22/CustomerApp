@@ -87,7 +87,7 @@ public class MenuDepartmentDAOImpl implements MenuDepartmentDAO {
 	@Override
 	public Iterable<MenuDepartment> findByDepartmentIdAndCategoryId(int departmentId, int categoryId, int page, String sort) {
 		// TODO Auto-generated method stub
-		int pageSize = 10;
+		int pageSize = 9;
 
 		int start = (page - 1) * pageSize;
 		Session session = this.sessionFactory.getCurrentSession();

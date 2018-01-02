@@ -47,12 +47,14 @@
 
 		const address = document.getElementById("address").value;
 		const note = document.getElementById("note").value;
-
+		const departmentId = sessionStorage.getItem("departmentId");
 		const orderInfo = {
 			customerId: 0,
-			orderType: "onsite",
-			status: "Not handle",
+			departmentId : departmentId,
+			orderType: "App",
+			status: "Unapproved",
 			addressDelivery: address,
+			dateDelivery : new Date(),
 			note : note
 		}
 

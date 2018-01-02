@@ -45,6 +45,9 @@ function removeItem(id) {
 	$('#cart-table').empty();
 	document.getElementById('cart-table').insertAdjacentHTML('beforeend',
 			renderCart(cart));
+	if(cart.length == 0){
+		sessionStorage.clear();
+	}
 }
 
 function updateItem(id) {
