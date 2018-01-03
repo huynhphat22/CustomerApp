@@ -40,7 +40,7 @@ public class RestOrderController {
 	private MenuDepartmentDAO menuDepartmentDAO;
 
 	
-	@RequestMapping(value = "/api/order", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/api/order", method = RequestMethod.POST)
 	public ResponseEntity<Void> paginate(@RequestBody CartInfo cartInfo) {
 		
 		final Calendar cal = Calendar.getInstance();
@@ -62,6 +62,7 @@ public class RestOrderController {
 		orderFood.setCustomerId(customer.getCustomerId());
 		orderFood.setDateCreated(new Date());
 		orderFood.setDateDelivery(cal.getTime());
+		orderFood.setStatus("Unapproved");
 		orderFood.setFlags(true);
 		System.out.println("address : " + orderFood.getAddressDelivery());
 
@@ -94,6 +95,6 @@ public class RestOrderController {
 			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
 		}
 		System.out.println("thông cành");
-		return new ResponseEntity<Void>(HttpStatus.OK);
+		return new ResponseEntity<Void>(HttpStatus.CREATED);
 	}
 }

@@ -16,22 +16,22 @@
 		<c:forEach items="${errors }" var="error">
 			<strong class="text-danger text-center"><c:out value="${error }"/></strong>
 		</c:forEach>
-		<strong class="text-success text-center">${message }</strong>
+		<p class="text-success text-center">${message }</p>
 		<div class="login-agileinfo">
 			<form:form action="${pageContext.servletContext.contextPath}/SignUp" method="post" commandName="customerForm">
 				<form:input class="agile-ltext" type="text" path="customerName"
-					placeholder="Your Name" required="true"/> 
+					placeholder="Your Name" required="true" minLength="2"/> 
 				<form:input
 					class="agile-ltext" type="text" path="phoneNumber"
-					placeholder="Your Phone Number" required="true"/> 
+					placeholder="Your Phone Number" required="true" minLength="10" maxLength="11"/> 
 				<form:input
 					class="agile-ltext" type="password" path="password"
-					placeholder="Password" required="true"/> 
+					placeholder="Password" required="true" minLength="6"/> 
 				<input
 					class="agile-ltext" type="password" name="rePassword"
-					placeholder="Confirm Password" required="true"/>
+					placeholder="Confirm Password" required="true" minLength="6"/>
 				<form:input class="agile-ltext" type="text" path="address"
-					placeholder="Address"  required="false"/>
+					placeholder="Address" minLength="10" required="false"/>
 				<input type="submit" value="Sign Up">
 			</form:form>
 			<p>

@@ -25,8 +25,7 @@ public class SearchFoodsController {
 		ModelAndView mav = new ModelAndView("searchFoods");
 		List<MenuDepartment> listFoods = null;
 		
-		//totalPages = (count % pageQuery.getSize() != 0) ? (count / pageQuery.getSize()) + 1
-				//: count / pageQuery.getSize();
+		
 		long count = 1;
 		try{
 			int price = Integer.parseInt(q);
@@ -37,7 +36,7 @@ public class SearchFoodsController {
 			listFoods = (List<MenuDepartment>) this.menuDepartmentDAO.searchByFoodName(departmentId, q, page);
 			count = this.menuDepartmentDAO.countBySearchFoodName(departmentId, q);
 		}
-		
+		count = (count % 9 != 0) ? (count / 9) + 1 : count / 9;
 		mav.addObject("listFoods", listFoods);
 		mav.addObject("deptId", departmentId);
 		mav.addObject("count", count);

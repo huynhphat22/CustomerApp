@@ -25,6 +25,7 @@ public class FoodsController {
 		ModelAndView mav = new ModelAndView("foods");
 		List<MenuDepartment> listFoods = (List<MenuDepartment>) this.menuDepartmentDAO.findByDepartmentIdAndCategoryId(departmentId, categoryId, page, "id");
 		long count  = this.menuDepartmentDAO.countByDepartmentIdAndCategoryId(departmentId, categoryId);
+		count = (count % 9 != 0) ? (count / 9) + 1 : count / 9;
 		mav.addObject("listFoods", listFoods);
 		mav.addObject("deptId", departmentId);
 		mav.addObject("catId", categoryId);

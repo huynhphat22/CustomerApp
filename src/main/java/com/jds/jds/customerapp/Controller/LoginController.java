@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -24,6 +25,15 @@ public class LoginController {
     @RequestMapping(value = "/Login", method = RequestMethod.GET)
     public ModelAndView loginPage(){
         return new ModelAndView("login");
+    }
+    
+    @RequestMapping(value = "/Logout", method = RequestMethod.GET)
+    public ModelAndView logoutPage(HttpServletRequest request){
+    	HttpSession session = request.getSession(false);
+    	if (session != null) {
+    	    session.invalidate();
+    	}
+        return new ModelAndView("redirect:/Home");
     }
     
     @RequestMapping(value = "/Login", method = RequestMethod.POST)

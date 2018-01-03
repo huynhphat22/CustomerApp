@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <div class="container">	
 		<ol class="breadcrumb w3l-crumbs">
-			<li><a href="${pageContext.servletContext.contextPath}/#"><i class="fa fa-home"></i> Home</a></li> 
+			<li><a href="${pageContext.servletContext.contextPath}"><i class="fa fa-home"></i> Home</a></li> 
 			<li class="active">Menu</li>
 		</ol>
 	</div>

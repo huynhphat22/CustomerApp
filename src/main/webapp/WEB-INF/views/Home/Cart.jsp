@@ -66,7 +66,7 @@
 
 		console.log("cart Info", cartInfo);
 
-		$.ajax({
+		/*$.ajax({
 			url: "http://localhost:8080/JDS-CustomerApp/api/order",
 			type: 'POST',
 			headers: { 
@@ -80,6 +80,11 @@
 				alert("Thanh cong");
 				window.location.href="http://localhost:8080/JDS-CustomerApp/Login";
 			}
+		});*/
+		
+		$.post("http://localhost:8080/JDS-CustomerApp/api/order",JSON.stringify(cartInfo),
+		function(data, status){
+			alert("Data: " + data + "\nStatus: " + status);
 		});
 	}
 

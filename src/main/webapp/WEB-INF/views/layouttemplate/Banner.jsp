@@ -18,15 +18,26 @@
                                     <ul> 
                                             <li class="head-dpdn">
                                                     <i class="fa fa-phone" aria-hidden="true"></i> Call us: +01 222 33345 
-                                            </li> 
-                                            <li class="head-dpdn">
+                                            </li>
+                                             
+                                             <c:if test="${empty sessionScope.customer}">
+                                             	 <li class="head-dpdn">
                                                     <a href="${pageContext.request.contextPath}/Login"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
-                                            </li> 
+                                            </li>
+                                             </c:if>
+                                            
+                                            
+                                            <c:if test="${not empty sessionScope.customer}">
+												 <li class="head-dpdn">
+                                                    <a href="${pageContext.request.contextPath}/Logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+                                            	</li> 
+                                            	<li class="head-dpdn"><a
+								href="${pageContext.request.contextPath}/History?page=1"><i
+									class="fa fa-sign-out" aria-hidden="true"></i> Profile</a></li>
+											</c:if>
+											
                                             <li class="head-dpdn">
                                                     <a href="${pageContext.request.contextPath}/SignUp"><i class="fa fa-user-plus" aria-hidden="true"></i> Signup</a>
-                                            </li> 
-                                            <li class="head-dpdn">
-                                                    <a href="${pageContext.request.contextPath}/Offers"><i class="fa fa-gift" aria-hidden="true"></i> Offers</a>
                                             </li> 
                                             <li class="head-dpdn">
                                                     <a href="${pageContext.request.contextPath}/Help"><i class="fa fa-question-circle" aria-hidden="true"></i> Help</a>
@@ -34,6 +45,7 @@
                                              <li class="head-dpdn">
                                                     <a><i class="fa fa-user-circle" aria-hidden="true"></i> <c:out value="${sessionScope.customer.customerName  }"/></a>
                                             </li>
+                                            
                                     </ul>
                             </div>
                             <div class="clearfix"> </div> 

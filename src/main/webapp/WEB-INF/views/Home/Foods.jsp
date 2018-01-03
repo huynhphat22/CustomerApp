@@ -56,7 +56,7 @@
 										<input type='hidden' name='image' value="${food.food.image }"/>
 										<input type="hidden" name="foodName" value="${food.food.foodName }"> 
 										<input type="hidden" name="price" value="${food.price }"> 
-										<button value="1" onclick="addToCart(${food.id.foodId})" type="button" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+										<button value="1" onclick="addToCart(${food.food.foodId})" type="button" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
 										<span class="w3-agile-line"> </span>
 										<a href="${pageContext.servletContext.contextPath}/DetailFood?foodId=${food.food.foodId}&deptId=${deptId}"  data-target="#myModal1">More</a>
 									</form>
@@ -284,6 +284,7 @@
 	
 	<script>
 	function addToCart(foodId){
+		console.log("food Id :" + foodId);
 		const form = $('#f' + foodId);
 		let departmentId = form.find('input[name="departmentId"]').val();
 		let image = form.find('input[name="image"]').val();
@@ -311,7 +312,7 @@
 		}
 		let listCart = JSON.parse(sessionStorage.getItem('listCart')) || [];
 		for(let i=0 ; i< listCart.length ;i++){
-			if(listCart[i].id.foodId === product.id.foodId && listCart[i].id.departmentId === product.id.departmentId ){
+			if(listCart[i].foodId === product.foodId ){
 				listCart[i].quantity = parseInt(listCart[i].quantity) + 1 ;
 				check = true;
 			}

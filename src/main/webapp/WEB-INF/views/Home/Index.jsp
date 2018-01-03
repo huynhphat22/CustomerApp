@@ -5,14 +5,14 @@
         <div class="container">
                 <div class="add-products-row">
                         <div class="w3ls-add-grids">
-                                <a href="menu.html"> 
+                                <a href="${pageContext.servletContext.contextPath}/Departments?page=1"> 
                                         <h4>Get <span>20%<br>Cashback</span></h4>
                                         <h5>Ordered in mobile app only </h5>
                                         <h6>Order Now <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
                                 </a>
                         </div>
                         <div class="w3ls-add-grids w3ls-add-grids-right">
-                                <a href="menu.html"> 
+                                <a href="${pageContext.servletContext.contextPath}/Departments?page=1"> 
                                         <h4>GET Upto<span><br>40% Offer</span></h4>
                                         <h5>Sunday special discount</h5>
                                         <h6>Order Now <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
@@ -125,14 +125,14 @@
                         <div class="col-md-9 spldishes-grids">
                                 <!-- Owl-Carousel -->
                                 <div id="owl-demo" class="owl-carousel text-center agileinfo-gallery-row">
-                                        <a href="products.html" class="item g1">
+                                        <a href="${pageContext.servletContext.contextPath}/Departments?page=1" class="item g1">
                                                 <img class="lazyOwl" src="images/g1.jpg" title="Our latest gallery" alt=""/>
                                                 <div class="agile-dish-caption">
                                                         <h4>Duis congue</h4>
                                                         <span>Neque porro quisquam est qui dolorem </span>
                                                 </div>
                                         </a>
-                                        <a href="products.html" class="item g1">
+                                        <a href="${pageContext.servletContext.contextPath}/Departments?page=1" class="item g1">
                                                 <img class="lazyOwl" src="images/g2.jpg" title="Our latest gallery" alt=""/>
                                                 <div class="agile-dish-caption">
                                                         <h4>Duis congue</h4>

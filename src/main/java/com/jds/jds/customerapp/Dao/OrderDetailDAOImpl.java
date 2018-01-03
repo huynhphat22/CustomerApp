@@ -55,13 +55,27 @@ public class OrderDetailDAOImpl implements OrderDetailDAO {
 	@Override
 	public Iterable<OrderDetail> findByCustomerIdAndOrderId(int orderId, int customerId ) {
 		// TODO Auto-generated method stub
+		System.out.println("o " + orderId + "        ---- "+ customerId );
 		Session session = this.sessionFactory.getCurrentSession();
-		Query query = session.createQuery("SELECT od FROM OrderDetail od INNER JOIN OrderFood of ON "
-				+ "(of.orderId = :orderId AND od.id.orderId = of.orderId) INNER JOIN Customer c "
-				+ "ON (c.customerId = of.customerId AND c.customerId = :customerId)");
-		query.setParameter("orderId", orderId);
-		query.setParameter("customerId", customerId);
+		Iterable<OrderDetail> list = null;
+		try{
+			Query query = session.createQuery("Select od FROM OrderDetail od INNER JOIN OrderFood fo ON "
+					+ "( fo.orderId = od.id.orderId  AND fo.orderId = :orderId AND fo.customerId = :customerId) ");
+			query.setParameter("orderId", orderId);
+			query.setParameter("customerId", customerId);
+			
+			
+			
+			list = query.list();
+			for(OrderDetail o : list){
+				System.out.println("quantity" + o.getQuantity());
+			}
+		}
+		catch(Exception e){
+			System.out.println("loi");
+			e.printStackTrace();
+		}
 		
-		return query.list();
+		return list;
 	}
 }

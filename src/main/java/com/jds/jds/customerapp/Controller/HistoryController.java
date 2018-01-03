@@ -57,8 +57,11 @@ public class HistoryController {
 		
 		List<OrderFood> list = (List<OrderFood>) this.orderFoodDAO.paginateOrderFoodByCustomerId(page, "orderId", customer.getCustomerId());
 		long count = this.orderFoodDAO.countByCustomerId(customer.getCustomerId());
+		count = (count % 10 != 0) ? (count / 10) + 1 : count / 10;
 		mav.addObject("listDetails", listDetails);
+		System.out.println("Duoc ne 3!");
 		mav.addObject("list", list);
+		mav.addObject("page", page);
 		mav.addObject("count", count);
 		mav.addObject("customer", customer);
 		return mav;
@@ -109,7 +112,7 @@ public class HistoryController {
     	}
     	
 		customer.setPassword(bpe.encode(newPassword));
-		
+		mav.addObject("page", page);
 		this.customerDAO.update(customer);
 		mav.addObject("message", "Change Password successfully");
 		return mav;

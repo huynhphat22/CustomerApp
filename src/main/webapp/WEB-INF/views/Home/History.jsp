@@ -23,61 +23,61 @@
 					</div>
 
 					<div class="clearfix"></div>
-					
-					<div class="panel panel-primary">
-				      <div class="panel-heading">Change Password</div>
-				      <div class="panel-body">
-				      	<p class="text-center text-success">${message }</p>
-				      	<form method="POST">
-				      		<div class="form-group">
-				      			<label>Current Password</label>
-				      			<input class="form-control" type="password" name="password" required minLength="6" />
-				      		</div>
-				      		<div class="form-group">
-				      			<label>New Password</label>
-				      			<input class="form-control" type="password" name="newPassword" required minLength="6" />
-				      		</div>
-				      		<div class="form-group">
-				      			<label>Confirm New Password</label>
-				      			<input class="form-control" type="password" name="reNewPassword" required minLength="6" />
-				      		</div>
-				      		<button class="btn btn-info btn-block">Change Password</button>
-				      	</form>
-				      </div>
-				    </div>
-				    
-				    <div class="clearfix"></div>
+
+					<div class="panel panel-primary" style="margin-top: 20px">
+						<div class="panel-heading">Change Password</div>
+						<div class="panel-body">
+							<p class="text-center text-success">${message }</p>
+							<form method="POST">
+								<div class="form-group">
+									<label>Current Password</label> <input class="form-control"
+										type="password" name="password" required minLength="6" />
+								</div>
+								<div class="form-group">
+									<label>New Password</label> <input class="form-control"
+										type="password" name="newPassword" required minLength="6" />
+								</div>
+								<div class="form-group">
+									<label>Confirm New Password</label> <input class="form-control"
+										type="password" name="reNewPassword" required minLength="6" />
+								</div>
+								<button class="btn btn-info btn-block">Change Password</button>
+							</form>
+						</div>
+					</div>
+
+					<div class="clearfix"></div>
 
 					<table class="table table-bordered" style="margin-top: 5px;">
 						<tbody>
 							<tr>
 								<td><label>Customer Name</label></td>
-								<td>${customer.customerName }"</td>
+								<td>${customer.customerName }</td>
 							</tr>
 							<tr>
 								<td><label>Address</label></td>
-								<td>${customer.address }"</td>
+								<td>${customer.address }</td>
 							</tr>
 							<tr>
 								<td><label>Phone Number</label></td>
-								<td>${customer.phoneNumber }"</td>
+								<td>${customer.phoneNumber }</td>
 							</tr>
 							<tr>
 								<td><label>Customer Type </label></td>
-								<td>${customer.customerType }"</td>
+								<td>${customer.customerType }</td>
 							</tr>
 							<tr>
 								<td><label>Date Created </label></td>
-								<td>${customer.dateCreated }"</td>
+								<td>${customer.dateCreated }</td>
 							</tr>
 						</tbody>
 					</table>
-					
-					
+
+
 
 					<div class="clearfix"></div>
-					
-					 
+
+
 				</div>
 				<div class="col-md-8 ftr-top-grids">
 					<div class="ftr-top-left">
@@ -87,6 +87,29 @@
 						<h4>Order Info</h4>
 
 					</div>
+					
+					<table class="table table-responsive table-hover">
+						<caption><h2>Your Order Detail</h2></caption>
+						<thead>
+							<tr>
+								<th>Order Id</th>
+								<th>Food Name</th>
+								<th>Quantity</th>
+								<th>Status</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach items="${listDetails }" var="orderDetail">
+								<tr>
+									<td>${orderDetail.id.orderId}</td>
+									<td>${orderDetail.food.foodName}</td>
+									<td>${orderDetail.quantity}</td>
+									<td>${orderDetail.status}</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+					<div class="clearfix"></div>
 					<div class="row">
 						<div class="col-sm-12">
 							<ul class="pagination">
@@ -103,42 +126,43 @@
 						</div>
 					</div>
 
-					<div class="panel panel-primary">
-						<div class="panel-heading">Your order</div>
-						<div class="panel-body">
-							<table class="table table-responsive table-hover">
-								<thead>
-									<tr>
-										<th>Id</th>
-										<th>Order Type</th>
-										<th>Status</th>
-										<th>Date Created</th>
-										<th>Date Delivery</th>
-										<th>Address Delivery</th>
-										<th>Total Price</th>
-										<th>Note</th>
-									</tr>
-								</thead>
-								<tbody>
-									<c:forEach items="${list }" var="orderFood">
-										<tr>
-											<td>${orderFood.orderId}</td>
-											<td>${orderFood.orderType}</td>
-											<td>${orderFood.status}</td>
-											<td>${orderFood.dateCreated}</td>
-											<td>${orderFood.dateDelivery}</td>
-											<td>${orderFood.addressDelivery}</td>
-											<td>${orderFood.totalPrice}</td>
-											<td>${orderFood.note}</td>
-										</tr>
-									</c:forEach>
-								</tbody>
-							</table>
 
-						</div>
-					</div>
-
+					<table class="table table-responsive table-hover">
+						<caption><h2>Your order</h2></caption>
+						<thead>
+							<tr>
+								<th>Id</th>
+								<th>Order Type</th>
+								<th>Status</th>
+								<th>Date Created</th>
+								<th>Date Delivery</th>
+								<th>Address Delivery</th>
+								<th>Total Price</th>
+								<th>Note</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach items="${list }" var="orderFood">
+								<tr>
+									<td>${orderFood.orderId}</td>
+									<td>${orderFood.orderType}</td>
+									<td>${orderFood.status}</td>
+									<td>${orderFood.dateCreated}</td>
+									<td>${orderFood.dateDelivery}</td>
+									<td>${orderFood.addressDelivery}</td>
+									<td>${orderFood.totalPrice}</td>
+									<td>${orderFood.note}</td>
+									<th><a class="btn btn-sm btn-info" 
+									href="${pageContext.servletContext.contextPath}/History?page=${page}&orderId=${orderFood.orderId}">
+									<i class="glyphicon glyphicon-edit"></i>
+									</a></th>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
 					<div class="clearfix"></div>
+					
 				</div>
 				<div class="clearfix"></div>
 			</div>

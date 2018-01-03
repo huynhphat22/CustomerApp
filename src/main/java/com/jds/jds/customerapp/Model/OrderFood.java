@@ -18,7 +18,7 @@ import javax.persistence.TemporalType;
 @Table(name = "order_food", catalog = "restaurant")
 public class OrderFood  {
 
-	private Integer orderId;
+	private int orderId;
 	private int customerId;
 	private int departmentId;
 	private String orderType;
@@ -58,11 +58,11 @@ public class OrderFood  {
 	@GeneratedValue(strategy = IDENTITY)
 
 	@Column(name = "orderID", unique = true, nullable = false)
-	public Integer getOrderId() {
+	public int getOrderId() {
 		return this.orderId;
 	}
 
-	public void setOrderId(Integer orderId) {
+	public void setOrderId(int orderId) {
 		this.orderId = orderId;
 	}
 

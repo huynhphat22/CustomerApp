@@ -23,7 +23,8 @@ public class DepartmentsController {
 	public ModelAndView departments(@RequestParam("page") int page) {
 		ModelAndView mav = new ModelAndView("departments");
 		List<Department> listDepartments = (List<Department>) this.departmentDAO.paginateDepartment(page, "departmentId");
-		long count = this.departmentDAO.count()/10;
+		long count = this.departmentDAO.count();
+		count = (count % 12 != 0) ? (count / 12) + 1 : count / 12;
 		mav.addObject("count", count);
 		mav.addObject("page", page);
 		mav.addObject("listDepartments", listDepartments);
